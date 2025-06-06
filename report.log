@@ -1,0 +1,154 @@
+[2025-06-06 17:24:19] Successfully registered with tracker.
+[2025-06-06 17:24:19] Client 'a' started. Listening for P2P on 0.0.0.0:3313
+[2025-06-06 17:24:25] Successfully registered with tracker.
+[2025-06-06 17:24:25] Client 'b' started. Listening for P2P on 0.0.0.0:3316
+[2025-06-06 17:24:32] Successfully registered with tracker.
+[2025-06-06 17:24:32] Client 'c' started. Listening for P2P on 0.0.0.0:3320
+[2025-06-06 17:24:49] Constructing message for c via path: a -> b -> c
+[2025-06-06 17:24:49] Message sent to first hop: b
+[2025-06-06 17:24:49] Accepted P2P connection from ('127.0.0.1', 3329)
+[2025-06-06 17:24:49] Relaying message. Path: a -> b -> c
+[2025-06-06 17:24:49] Successfully relayed message to c
+[2025-06-06 17:24:49] Accepted P2P connection from ('127.0.0.1', 3330)
+[2025-06-06 17:24:49] Received final message via path: a -> b -> c
+[2025-06-06 17:24:49] Checksum VERIFIED for message from a
+[2025-06-06 17:24:57] Constructing message for a via path: c -> b -> a
+[2025-06-06 17:24:57] Accepted P2P connection from ('127.0.0.1', 3334)
+[2025-06-06 17:24:57] Message sent to first hop: b
+[2025-06-06 17:24:57] Relaying message. Path: c -> b -> a
+[2025-06-06 17:24:57] Accepted P2P connection from ('127.0.0.1', 3335)
+[2025-06-06 17:24:57] Received final message via path: c -> b -> a
+[2025-06-06 17:24:57] Checksum VERIFIED for message from c
+[2025-06-06 17:24:59] Requesting voice call with c
+[2025-06-06 17:24:59] Constructing message for c via path: a -> b -> c
+[2025-06-06 17:24:59] Accepted P2P connection from ('127.0.0.1', 3337)
+[2025-06-06 17:24:59] Relaying message. Path: a -> b -> c
+[2025-06-06 17:24:59] Successfully relayed message to c
+[2025-06-06 17:24:59] Accepted P2P connection from ('127.0.0.1', 3338)
+[2025-06-06 17:24:59] Received final message via path: a -> b -> c
+[2025-06-06 17:24:59] Checksum VERIFIED for message from a
+[2025-06-06 17:25:03] Accepting voice call from a
+[2025-06-06 17:25:03] Constructing message for a via path: c -> b -> a
+[2025-06-06 17:25:03] Message sent to first hop: b
+[2025-06-06 17:25:03] Accepted P2P connection from ('127.0.0.1', 3340)
+[2025-06-06 17:25:03] Starting voice call session with a (127.0.0.1:3314)
+[2025-06-06 17:25:03] Relaying message. Path: c -> b -> a
+[2025-06-06 17:25:03] Accepted P2P connection from ('127.0.0.1', 3341)
+[2025-06-06 17:25:03] Successfully relayed message to a
+[2025-06-06 17:25:03] Received final message via path: c -> b -> a
+[2025-06-06 17:25:03] Checksum VERIFIED for message from c
+[2025-06-06 17:25:03] Starting voice call session with c (127.0.0.1:3321)
+[2025-06-06 17:25:13] Constructing message for c via path: a -> b -> c
+[2025-06-06 17:25:13] Message sent to first hop: b
+[2025-06-06 17:25:13] Accepted P2P connection from ('127.0.0.1', 3345)
+[2025-06-06 17:25:13] Relaying message. Path: a -> b -> c
+[2025-06-06 17:25:13] Accepted P2P connection from ('127.0.0.1', 3346)
+[2025-06-06 17:25:13] Successfully relayed message to c
+[2025-06-06 17:25:13] Received final message via path: a -> b -> c
+[2025-06-06 17:25:13] Checksum VERIFIED for message from a
+[2025-06-06 17:25:13] Voice call with a ended. Duration: 9.76s
+[2025-06-06 17:25:13] Voice call with c ended. Duration: 9.70s
+[2025-06-06 17:25:31] Deregistered from tracker.
+[2025-06-06 17:25:31] Client 'a' has been stopped.
+[2025-06-06 17:25:33] Deregistered from tracker.
+[2025-06-06 17:25:33] Client 'c' has been stopped.
+[2025-06-06 17:25:34] Deregistered from tracker.
+[2025-06-06 17:25:34] Client 'b' has been stopped.
+[2025-06-06 17:54:04] Successfully registered with tracker.
+[2025-06-06 17:54:04] Client 'a' started. Listening for P2P on 0.0.0.0:4034
+[2025-06-06 17:54:14] Successfully registered with tracker.
+[2025-06-06 17:54:14] Client 'b' started. Listening for P2P on 0.0.0.0:4037
+[2025-06-06 17:54:23] Successfully registered with tracker.
+[2025-06-06 17:54:23] Client 'c' started. Listening for P2P on 0.0.0.0:4041
+[2025-06-06 17:54:41] Constructing message for b via path: a -> c -> b
+[2025-06-06 17:54:41] Message sent to first hop: c
+[2025-06-06 17:54:41] Accepted P2P connection from ('127.0.0.1', 4049)
+[2025-06-06 17:54:41] Relaying message. Path: a -> c -> b
+[2025-06-06 17:54:41] Successfully relayed message to b
+[2025-06-06 17:54:41] Accepted P2P connection from ('127.0.0.1', 4050)
+[2025-06-06 17:54:41] Received final message via path: a -> c -> b
+[2025-06-06 17:54:41] Checksum VERIFIED for message from a
+[2025-06-06 17:54:54] Constructing message for a via path: b -> c -> a
+[2025-06-06 17:54:54] Message sent to first hop: c
+[2025-06-06 17:54:54] Accepted P2P connection from ('127.0.0.1', 4054)
+[2025-06-06 17:54:54] Relaying message. Path: b -> c -> a
+[2025-06-06 17:54:54] Successfully relayed message to a
+0.0.1', 4055)
+[2025-06-06 17:54:54] Received final message via path: b -> c -> a
+[2025-06-06 17:54:54] Checksum VERIFIED for message from b
+[2025-06-06 17:55:04] Constructing message for a via path: b -> c -> a
+[2025-06-06 17:55:04] Message sent to first hop: c
+[2025-06-06 17:55:04] Accepted P2P connection from ('127.0.0.1', 4064)
+[2025-06-06 17:55:04] Waiting for a to connect for file transfer on port 4063...
+[2025-06-06 17:55:04] Relaying message. Path: b -> c -> a
+[2025-06-06 17:55:04] Accepted P2P connection from ('127.0.0.1', 4065)
+[2025-06-06 17:55:04] Successfully relayed message to a
+[2025-06-06 17:55:04] Received final message via path: b -> c -> a
+[2025-06-06 17:55:04] Checksum VERIFIED for message from b
+[2025-06-06 17:55:15] Constructing message for a via path: b -> c -> a
+[2025-06-06 17:55:15] Message sent to first hop: c
+[2025-06-06 17:55:15] Accepted P2P connection from ('127.0.0.1', 4071)
+[2025-06-06 17:55:15] Waiting for a to connect for file transfer on port 4070...
+[2025-06-06 17:55:15] Relaying message. Path: b -> c -> a
+[2025-06-06 17:55:15] Successfully relayed message to a
+[2025-06-06 17:55:15] Accepted P2P connection from ('127.0.0.1', 4072)
+[2025-06-06 17:55:15] Received final message via path: b -> c -> a
+[2025-06-06 17:55:15] Checksum VERIFIED for message from b
+[2025-06-06 17:55:34] Connected to b to receive file 'تمرین سوم.pdf'.
+[2025-06-06 17:55:34] a connected for file transfer.
+[2025-06-06 17:55:35] File 'تمرین سوم.pdf' sent successfully to a.
+[2025-06-06 17:55:35] File 'تمرین سوم.pdf' received successfully.
+[2025-06-06 17:55:53] Requesting voice call with b
+[2025-06-06 17:55:53] Constructing message for b via path: a -> c -> b
+[2025-06-06 17:55:53] Message sent to first hop: c
+[2025-06-06 17:55:53] Accepted P2P connection from ('127.0.0.1', 4088)
+[2025-06-06 17:55:53] Relaying message. Path: a -> c -> b
+[2025-06-06 17:55:53] Successfully relayed message to b
+[2025-06-06 17:55:53] Accepted P2P connection from ('127.0.0.1', 4089)
+[2025-06-06 17:55:53] Received final message via path: a -> c -> b
+[2025-06-06 17:55:53] Checksum VERIFIED for message from a
+[2025-06-06 17:56:00] Accepting voice call from a
+[2025-06-06 17:56:00] Constructing message for a via path: b -> c -> a
+[2025-06-06 17:56:00] Message sent to first hop: c
+[2025-06-06 17:56:00] Accepted P2P connection from ('127.0.0.1', 4097)
+[2025-06-06 17:56:00] Starting voice call session with a (127.0.0.1:4035)
+[2025-06-06 17:56:00] Relaying message. Path: b -> c -> a
+[2025-06-06 17:56:00] Successfully relayed message to a
+0.0.1', 4098)
+[2025-06-06 17:56:00] Received final message via path: b -> c -> a
+[2025-06-06 17:56:00] Checksum VERIFIED for message from b
+[2025-06-06 17:56:00] Starting voice call session with b (127.0.0.1:4038)
+[2025-06-06 17:56:05] Constructing message for a via path: b -> c -> a
+[2025-06-06 17:56:05] Message sent to first hop: c
+[2025-06-06 17:56:05] Accepted P2P connection from ('127.0.0.1', 4101)
+[2025-06-06 17:56:05] Relaying message. Path: b -> c -> a
+[2025-06-06 17:56:05] Accepted P2P connection from ('127.0.0.1', 4102)
+[2025-06-06 17:56:05] Successfully relayed message to a
+[2025-06-06 17:56:05] Received final message via path: b -> c -> a
+[2025-06-06 17:56:05] Checksum VERIFIED for message from b
+[2025-06-06 17:56:05] Voice call with b ended. Duration: 5.21s
+[2025-06-06 17:56:05] Voice call with a ended. Duration: 5.22s
+[2025-06-06 17:56:13] Chat history saved.
+[2025-06-06 17:56:13] Deregistered from tracker.
+[2025-06-06 17:56:13] Client 'a' has been stopped.
+[2025-06-06 17:56:15] Chat history saved.
+[2025-06-06 17:56:15] Deregistered from tracker.
+[2025-06-06 17:56:15] Client 'b' has been stopped.
+[2025-06-06 17:56:16] Chat history saved.
+[2025-06-06 17:56:16] Deregistered from tracker.
+[2025-06-06 17:56:16] Client 'c' has been stopped.
+[2025-06-06 17:57:06] Chat history loaded.
+[2025-06-06 17:57:06] Successfully registered with tracker.
+[2025-06-06 17:57:06] Client 'a' started. Listening for P2P on 0.0.0.0:4110
+[2025-06-06 17:57:14] Chat history loaded.
+[2025-06-06 17:57:14] Successfully registered with tracker.
+[2025-06-06 17:57:14] Client 'b' started. Listening for P2P on 0.0.0.0:4113
+[2025-06-06 17:57:24] Chat history loaded.
+[2025-06-06 17:57:24] Successfully registered with tracker.
+[2025-06-06 17:57:24] Client 'c' started. Listening for P2P on 0.0.0.0:4117
+[2025-06-06 17:57:41] Chat history saved.
+[2025-06-06 17:57:41] Deregistered from tracker.
+[2025-06-06 17:57:41] Client 'c' has been stopped.
+[2025-06-06 17:57:42] Chat history saved.
+[2025-06-06 17:57:42] Deregistered from tracker.
+[2025-06-06 17:57:42] Client 'a' has been stopped.
