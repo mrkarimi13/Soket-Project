@@ -1,0 +1,230 @@
+[2025-06-06 00:26:03] Successfully registered with tracker.
+[2025-06-06 00:26:03] Client 'a' started. Listening for P2P on 0.0.0.0:2116
+[2025-06-06 00:26:08] Successfully registered with tracker.
+[2025-06-06 00:26:08] Client 'b' started. Listening for P2P on 0.0.0.0:2121
+[2025-06-06 00:26:16] Successfully registered with tracker.
+[2025-06-06 00:26:16] Client 'c' started. Listening for P2P on 0.0.0.0:2125
+[2025-06-06 00:26:32] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:26:32] Message sent to first hop: b
+[2025-06-06 00:26:32] Accepted P2P connection from ('127.0.0.1', 2134)
+[2025-06-06 00:26:32] Relaying message. Path: c -> b -> a
+[2025-06-06 00:26:32] Successfully relayed message to a
+[2025-06-06 00:26:32] Accepted P2P connection from ('127.0.0.1', 2135)
+[2025-06-06 00:26:32] Received final message via path: c -> b -> a
+[2025-06-06 00:26:32] Checksum VERIFIED for message from c
+[2025-06-06 00:27:08] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:27:08] Message sent to first hop: b
+[2025-06-06 00:27:08] Accepted P2P connection from ('127.0.0.1', 2149)
+[2025-06-06 00:27:08] Relaying message. Path: c -> b -> a
+[2025-06-06 00:27:08] Accepted P2P connection from ('127.0.0.1', 2150)
+[2025-06-06 00:27:08] Successfully relayed message to a
+[2025-06-06 00:27:08] Received final message via path: c -> b -> a
+[2025-06-06 00:27:08] Checksum VERIFIED for message from c
+[2025-06-06 00:27:16] Constructing message for c via path: a -> b -> c
+[2025-06-06 00:27:16] Message sent to first hop: b
+[2025-06-06 00:27:16] Accepted P2P connection from ('127.0.0.1', 2156)
+[2025-06-06 00:27:16] Relaying message. Path: a -> b -> c
+[2025-06-06 00:27:16] Successfully relayed message to c
+0.0.1', 2157)
+[2025-06-06 00:27:16] Received final message via path: a -> b -> c
+[2025-06-06 00:27:16] Checksum VERIFIED for message from a
+[2025-06-06 00:27:40] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:27:40] Message sent to first hop: b
+[2025-06-06 00:27:40] Accepted P2P connection from ('127.0.0.1', 2167)
+[2025-06-06 00:27:40] Relaying message. Path: c -> b -> a
+[2025-06-06 00:27:40] Accepted P2P connection from ('127.0.0.1', 2168)
+[2025-06-06 00:27:40] Successfully relayed message to a
+[2025-06-06 00:27:40] Received final message via path: c -> b -> a
+[2025-06-06 00:27:40] Checksum VERIFIED for message from c
+[2025-06-06 00:27:46] Constructing message for c via path: a -> b -> c
+[2025-06-06 00:27:46] Message sent to first hop: b
+[2025-06-06 00:27:46] Accepted P2P connection from ('127.0.0.1', 2173)
+[2025-06-06 00:27:46] Relaying message. Path: a -> b -> c
+[2025-06-06 00:27:46] Accepted P2P connection from ('127.0.0.1', 2174)
+[2025-06-06 00:27:46] Successfully relayed message to c
+[2025-06-06 00:27:46] Received final message via path: a -> b -> c
+[2025-06-06 00:27:46] Checksum VERIFIED for message from a
+[2025-06-06 00:27:49] Requesting voice call with a
+[2025-06-06 00:27:49] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:27:49] Message sent to first hop: b
+[2025-06-06 00:27:49] Accepted P2P connection from ('127.0.0.1', 2176)
+[2025-06-06 00:27:49] Relaying message. Path: c -> b -> a
+[2025-06-06 00:27:49] Accepted P2P connection from ('127.0.0.1', 2177)
+[2025-06-06 00:27:49] Successfully relayed message to a
+[2025-06-06 00:27:49] Received final message via path: c -> b -> a
+[2025-06-06 00:27:49] Checksum VERIFIED for message from c
+[2025-06-06 00:27:52] Accepting voice call from c
+[2025-06-06 00:27:52] Constructing message for c via path: a -> b -> c
+[2025-06-06 00:27:52] Message sent to first hop: b
+'127.0.0.1', 2178)
+[2025-06-06 00:27:52] Starting voice call session with c (127.0.0.1:2126)
+[2025-06-06 00:27:52] Relaying message. Path: a -> b -> c
+[2025-06-06 00:27:52] Accepted P2P connection from ('127.0.0.1', 2179)
+[2025-06-06 00:27:52] Successfully relayed message to c
+[2025-06-06 00:27:52] Received final message via path: a -> b -> c
+[2025-06-06 00:27:52] Checksum VERIFIED for message from a
+[2025-06-06 00:27:52] Starting voice call session with a (127.0.0.1:2117)
+[2025-06-06 00:28:08] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:28:08] Message sent to first hop: b
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2185)
+[2025-06-06 00:28:08] Relaying message. Path: c -> b -> a
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2186)
+[2025-06-06 00:28:08] Successfully relayed message to a
+[2025-06-06 00:28:08] Received final message via path: c -> b -> a
+[2025-06-06 00:28:08] Checksum VERIFIED for message from c
+[2025-06-06 00:28:08] Constructing message for c via path: a -> b -> c
+[2025-06-06 00:28:08] Message sent to first hop: b
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2187)
+[2025-06-06 00:28:08] Relaying message. Path: a -> b -> c
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2188)
+[2025-06-06 00:28:08] Successfully relayed message to c
+[2025-06-06 00:28:08] Received final message via path: a -> b -> c
+[2025-06-06 00:28:08] Checksum VERIFIED for message from a
+[2025-06-06 00:28:08] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:28:08] Message sent to first hop: b
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2189)
+[2025-06-06 00:28:08] Relaying message. Path: c -> b -> a
+[2025-06-06 00:28:08] Successfully relayed message to a
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2190)
+[2025-06-06 00:28:08] Received final message via path: c -> b -> a
+[2025-06-06 00:28:08] Checksum VERIFIED for message from c
+[2025-06-06 00:28:08] Constructing message for c via path: a -> b -> c
+[2025-06-06 00:28:08] Message sent to first hop: b
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2191)
+[2025-06-06 00:28:08] Relaying message. Path: a -> b -> c
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2192)
+[2025-06-06 00:28:08] Successfully relayed message to c
+[2025-06-06 00:28:08] Received final message via path: a -> b -> c
+[2025-06-06 00:28:08] Checksum VERIFIED for message from a
+[2025-06-06 00:28:08] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2193)
+[2025-06-06 00:28:08] Relaying message. Path: c -> b -> a
+[2025-06-06 00:28:08] Successfully relayed message to a
+[2025-06-06 00:28:08] Accepted P2P connection from ('127.0.0.1', 2194)
+[2025-06-06 00:28:09] Received final message via path: c -> b -> a
+[2025-06-06 00:28:09] Voice call ended.
+[2025-06-06 00:28:09] Checksum VERIFIED for message from c
+[2025-06-06 00:28:09] Constructing message for c via path: a -> b -> c
+[2025-06-06 00:28:09] Message sent to first hop: b
+[2025-06-06 00:28:09] Accepted P2P connection from ('127.0.0.1', 2195)
+[2025-06-06 00:28:09] Relaying message. Path: a -> b -> c
+[2025-06-06 00:28:09] Accepted P2P connection from ('127.0.0.1', 2196)
+[2025-06-06 00:28:09] Successfully relayed message to c
+[2025-06-06 00:28:09] Received final message via path: a -> b -> c
+[2025-06-06 00:28:09] Checksum VERIFIED for message from a
+[2025-06-06 00:28:09] Voice call ended.
+[2025-06-06 00:28:18] Requesting voice call with a
+[2025-06-06 00:28:18] Constructing message for a via path: c -> b -> a
+[2025-06-06 00:28:18] Message sent to first hop: b
+[2025-06-06 00:28:18] Accepted P2P connection from ('127.0.0.1', 2203)
+[2025-06-06 00:28:18] Relaying message. Path: c -> b -> a
+[2025-06-06 00:28:18] Successfully relayed message to a
+[2025-06-06 00:28:18] Accepted P2P connection from ('127.0.0.1', 2204)
+[2025-06-06 00:28:18] Voice call ended.
+[2025-06-06 00:28:18] Received final message via path: c -> b -> a
+[2025-06-06 00:28:18] Checksum VERIFIED for message from c
+[2025-06-06 00:28:36] Constructing message for a via path: b -> c -> a
+[2025-06-06 00:28:38] Error sending message to first hop c: [WinError 10061] No connection could be made because the target machine actively refused it
+[2025-06-06 00:28:38] Constructing message for a via path: b -> c -> a
+[2025-06-06 00:28:40] Error sending message to first hop c: [WinError 10061] No connection could be made because the target machine actively refused it
+[2025-06-06 00:28:40] Constructing message for a via path: b -> c -> a
+[2025-06-06 00:28:42] Error sending message to first hop c: [WinError 10061] No connection could be made because the target machine actively refused it
+[2025-06-06 00:28:42] Requesting voice call with a
+[2025-06-06 00:28:42] Constructing message for a via path: b -> c -> a
+[2025-06-06 00:28:44] Error sending message to first hop c: [WinError 10061] No connection could be made because the target machine actively refused it
+[2025-06-06 00:28:55] Deregistered from tracker.
+[2025-06-06 00:28:55] Client 'b' has been stopped.
+[2025-06-06 00:30:11] Successfully registered with tracker.
+[2025-06-06 00:30:11] Client 'a' started. Listening for P2P on 0.0.0.0:2225
+[2025-06-06 00:30:26] Successfully registered with tracker.
+[2025-06-06 00:30:26] Client 'b' started. Listening for P2P on 0.0.0.0:2229
+[2025-06-06 00:30:34] Successfully registered with tracker.
+[2025-06-06 00:30:34] Client 'v' started. Listening for P2P on 0.0.0.0:2233
+[2025-06-06 00:31:07] Constructing message for a via path: b -> v -> a
+[2025-06-06 00:31:07] Message sent to first hop: v
+[2025-06-06 00:31:07] Accepted P2P connection from ('127.0.0.1', 2246)
+[2025-06-06 00:31:07] Relaying message. Path: b -> v -> a
+[2025-06-06 00:31:07] Accepted P2P connection from ('127.0.0.1', 2247)
+[2025-06-06 00:31:07] Successfully relayed message to a
+[2025-06-06 00:31:07] Received final message via path: b -> v -> a
+[2025-06-06 00:31:07] Checksum VERIFIED for message from b
+[2025-06-06 00:31:26] Requesting voice call with b
+[2025-06-06 00:31:26] Constructing message for b via path: a -> v -> b
+[2025-06-06 00:31:26] Message sent to first hop: v
+[2025-06-06 00:31:26] Accepted P2P connection from ('127.0.0.1', 2254)
+[2025-06-06 00:31:26] Relaying message. Path: a -> v -> b
+[2025-06-06 00:31:26] Accepted P2P connection from ('127.0.0.1', 2255)
+[2025-06-06 00:31:26] Successfully relayed message to b
+[2025-06-06 00:31:26] Received final message via path: a -> v -> b
+[2025-06-06 00:31:26] Checksum VERIFIED for message from a
+[2025-06-06 00:31:28] Accepting voice call from a
+[2025-06-06 00:31:28] Constructing message for a via path: b -> v -> a
+[2025-06-06 00:31:28] Message sent to first hop: v
+[2025-06-06 00:31:28] Accepted P2P connection from ('127.0.0.1', 2256)
+[2025-06-06 00:31:28] Starting voice call session with a (127.0.0.1:2226)
+[2025-06-06 00:31:28] Relaying message. Path: b -> v -> a
+[2025-06-06 00:31:28] Accepted P2P connection from ('127.0.0.1', 2257)
+[2025-06-06 00:31:28] Successfully relayed message to a
+[2025-06-06 00:31:28] Received final message via path: b -> v -> a
+[2025-06-06 00:31:28] Checksum VERIFIED for message from b
+[2025-06-06 00:31:28] Starting voice call session with b (127.0.0.1:2230)
+[2025-06-06 00:31:37] Constructing message for a via path: b -> v -> a
+[2025-06-06 00:31:37] Message sent to first hop: v
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2261)
+[2025-06-06 00:31:37] Relaying message. Path: b -> v -> a
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2262)
+[2025-06-06 00:31:37] Successfully relayed message to a
+[2025-06-06 00:31:37] Received final message via path: b -> v -> a
+[2025-06-06 00:31:37] Checksum VERIFIED for message from b
+[2025-06-06 00:31:37] Constructing message for b via path: a -> v -> b
+[2025-06-06 00:31:37] Message sent to first hop: v
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2263)
+[2025-06-06 00:31:37] Relaying message. Path: a -> v -> b
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2264)
+[2025-06-06 00:31:37] Successfully relayed message to b
+[2025-06-06 00:31:37] Received final message via path: a -> v -> b
+[2025-06-06 00:31:37] Checksum VERIFIED for message from a
+[2025-06-06 00:31:37] Constructing message for a via path: b -> v -> a
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2265)
+[2025-06-06 00:31:37] Message sent to first hop: v
+[2025-06-06 00:31:37] Relaying message. Path: b -> v -> a
+[2025-06-06 00:31:37] Successfully relayed message to a
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2266)
+[2025-06-06 00:31:37] Received final message via path: b -> v -> a
+[2025-06-06 00:31:37] Checksum VERIFIED for message from b
+[2025-06-06 00:31:37] Constructing message for b via path: a -> v -> b
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2267)
+[2025-06-06 00:31:37] Relaying message. Path: a -> v -> b
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2268)
+[2025-06-06 00:31:37] Successfully relayed message to b
+[2025-06-06 00:31:37] Received final message via path: a -> v -> b
+[2025-06-06 00:31:37] Checksum VERIFIED for message from a
+[2025-06-06 00:31:37] Constructing message for a via path: b -> v -> a
+[2025-06-06 00:31:37] Message sent to first hop: v
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2269)
+[2025-06-06 00:31:37] Relaying message. Path: b -> v -> a
+[2025-06-06 00:31:37] Successfully relayed message to a
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2270)
+[2025-06-06 00:31:37] Received final message via path: b -> v -> a
+[2025-06-06 00:31:37] Checksum VERIFIED for message from b
+[2025-06-06 00:31:37] Constructing message for b via path: a -> v -> b
+[2025-06-06 00:31:37] Message sent to first hop: v
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2271)
+[2025-06-06 00:31:37] Voice call ended.
+[2025-06-06 00:31:37] Relaying message. Path: a -> v -> b
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2272)
+[2025-06-06 00:31:37] Successfully relayed message to b
+[2025-06-06 00:31:37] Received final message via path: a -> v -> b
+[2025-06-06 00:31:37] Checksum VERIFIED for message from a
+[2025-06-06 00:31:37] Constructing message for a via path: b -> v -> a
+[2025-06-06 00:31:37] Message sent to first hop: v
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2273)
+[2025-06-06 00:31:37] Relaying message. Path: b -> v -> a
+[2025-06-06 00:31:37] Accepted P2P connection from ('127.0.0.1', 2274)
+[2025-06-06 00:31:37] Received final message via path: b -> v -> a
+[2025-06-06 00:31:37] Checksum VERIFIED for message from b
+[2025-06-06 00:31:37] Voice call ended.
+[2025-06-06 00:31:46] Voice call ended.
+[2025-06-06 00:31:46] Voice call ended.
+[2025-06-06 00:32:02] Deregistered from tracker.
+[2025-06-06 00:32:02] Client 'v' has been stopped.
