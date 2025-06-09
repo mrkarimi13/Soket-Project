@@ -253,7 +253,7 @@ class SecuriChatClient:
         # --- Onion Encryption Process ---
         log_event(f"Starting Onion Encryption for a '{msg_type}' message to '{recipient_user}'.", level="CRYPTO")
         
-        # For simplicity, this implementation uses a 2-hop path (sender -> relay -> recipient)
+       
         available_relays = [u for u in self.online_users if u != recipient_user and u != self.username]
         if not available_relays:
             log_event("Cannot create onion path: Not enough online users to act as a relay.", level="ERROR")
@@ -447,7 +447,7 @@ class SecuriChatClient:
         log_event(f"Voice call with {user_in_call} ended. UDP socket and streams closed. Duration: {duration:.2f}s", level="INFO")
         self.queue_ui_update("call_ended", (user_in_call, duration))
 
-# --- GUI Application Class (No changes needed below this line) ---
+
 class SecuriChatGUI(ctk.CTk):
     def __init__(self):
         super().__init__()
