@@ -1,154 +1,439 @@
-[2025-06-06 17:24:19] Successfully registered with tracker.
-[2025-06-06 17:24:19] Client 'a' started. Listening for P2P on 0.0.0.0:3313
-[2025-06-06 17:24:25] Successfully registered with tracker.
-[2025-06-06 17:24:25] Client 'b' started. Listening for P2P on 0.0.0.0:3316
-[2025-06-06 17:24:32] Successfully registered with tracker.
-[2025-06-06 17:24:32] Client 'c' started. Listening for P2P on 0.0.0.0:3320
-[2025-06-06 17:24:49] Constructing message for c via path: a -> b -> c
-[2025-06-06 17:24:49] Message sent to first hop: b
-[2025-06-06 17:24:49] Accepted P2P connection from ('127.0.0.1', 3329)
-[2025-06-06 17:24:49] Relaying message. Path: a -> b -> c
-[2025-06-06 17:24:49] Successfully relayed message to c
-[2025-06-06 17:24:49] Accepted P2P connection from ('127.0.0.1', 3330)
-[2025-06-06 17:24:49] Received final message via path: a -> b -> c
-[2025-06-06 17:24:49] Checksum VERIFIED for message from a
-[2025-06-06 17:24:57] Constructing message for a via path: c -> b -> a
-[2025-06-06 17:24:57] Accepted P2P connection from ('127.0.0.1', 3334)
-[2025-06-06 17:24:57] Message sent to first hop: b
-[2025-06-06 17:24:57] Relaying message. Path: c -> b -> a
-[2025-06-06 17:24:57] Accepted P2P connection from ('127.0.0.1', 3335)
-[2025-06-06 17:24:57] Received final message via path: c -> b -> a
-[2025-06-06 17:24:57] Checksum VERIFIED for message from c
-[2025-06-06 17:24:59] Requesting voice call with c
-[2025-06-06 17:24:59] Constructing message for c via path: a -> b -> c
-[2025-06-06 17:24:59] Accepted P2P connection from ('127.0.0.1', 3337)
-[2025-06-06 17:24:59] Relaying message. Path: a -> b -> c
-[2025-06-06 17:24:59] Successfully relayed message to c
-[2025-06-06 17:24:59] Accepted P2P connection from ('127.0.0.1', 3338)
-[2025-06-06 17:24:59] Received final message via path: a -> b -> c
-[2025-06-06 17:24:59] Checksum VERIFIED for message from a
-[2025-06-06 17:25:03] Accepting voice call from a
-[2025-06-06 17:25:03] Constructing message for a via path: c -> b -> a
-[2025-06-06 17:25:03] Message sent to first hop: b
-[2025-06-06 17:25:03] Accepted P2P connection from ('127.0.0.1', 3340)
-[2025-06-06 17:25:03] Starting voice call session with a (127.0.0.1:3314)
-[2025-06-06 17:25:03] Relaying message. Path: c -> b -> a
-[2025-06-06 17:25:03] Accepted P2P connection from ('127.0.0.1', 3341)
-[2025-06-06 17:25:03] Successfully relayed message to a
-[2025-06-06 17:25:03] Received final message via path: c -> b -> a
-[2025-06-06 17:25:03] Checksum VERIFIED for message from c
-[2025-06-06 17:25:03] Starting voice call session with c (127.0.0.1:3321)
-[2025-06-06 17:25:13] Constructing message for c via path: a -> b -> c
-[2025-06-06 17:25:13] Message sent to first hop: b
-[2025-06-06 17:25:13] Accepted P2P connection from ('127.0.0.1', 3345)
-[2025-06-06 17:25:13] Relaying message. Path: a -> b -> c
-[2025-06-06 17:25:13] Accepted P2P connection from ('127.0.0.1', 3346)
-[2025-06-06 17:25:13] Successfully relayed message to c
-[2025-06-06 17:25:13] Received final message via path: a -> b -> c
-[2025-06-06 17:25:13] Checksum VERIFIED for message from a
-[2025-06-06 17:25:13] Voice call with a ended. Duration: 9.76s
-[2025-06-06 17:25:13] Voice call with c ended. Duration: 9.70s
-[2025-06-06 17:25:31] Deregistered from tracker.
-[2025-06-06 17:25:31] Client 'a' has been stopped.
-[2025-06-06 17:25:33] Deregistered from tracker.
-[2025-06-06 17:25:33] Client 'c' has been stopped.
-[2025-06-06 17:25:34] Deregistered from tracker.
-[2025-06-06 17:25:34] Client 'b' has been stopped.
-[2025-06-06 17:54:04] Successfully registered with tracker.
-[2025-06-06 17:54:04] Client 'a' started. Listening for P2P on 0.0.0.0:4034
-[2025-06-06 17:54:14] Successfully registered with tracker.
-[2025-06-06 17:54:14] Client 'b' started. Listening for P2P on 0.0.0.0:4037
-[2025-06-06 17:54:23] Successfully registered with tracker.
-[2025-06-06 17:54:23] Client 'c' started. Listening for P2P on 0.0.0.0:4041
-[2025-06-06 17:54:41] Constructing message for b via path: a -> c -> b
-[2025-06-06 17:54:41] Message sent to first hop: c
-[2025-06-06 17:54:41] Accepted P2P connection from ('127.0.0.1', 4049)
-[2025-06-06 17:54:41] Relaying message. Path: a -> c -> b
-[2025-06-06 17:54:41] Successfully relayed message to b
-[2025-06-06 17:54:41] Accepted P2P connection from ('127.0.0.1', 4050)
-[2025-06-06 17:54:41] Received final message via path: a -> c -> b
-[2025-06-06 17:54:41] Checksum VERIFIED for message from a
-[2025-06-06 17:54:54] Constructing message for a via path: b -> c -> a
-[2025-06-06 17:54:54] Message sent to first hop: c
-[2025-06-06 17:54:54] Accepted P2P connection from ('127.0.0.1', 4054)
-[2025-06-06 17:54:54] Relaying message. Path: b -> c -> a
-[2025-06-06 17:54:54] Successfully relayed message to a
-0.0.1', 4055)
-[2025-06-06 17:54:54] Received final message via path: b -> c -> a
-[2025-06-06 17:54:54] Checksum VERIFIED for message from b
-[2025-06-06 17:55:04] Constructing message for a via path: b -> c -> a
-[2025-06-06 17:55:04] Message sent to first hop: c
-[2025-06-06 17:55:04] Accepted P2P connection from ('127.0.0.1', 4064)
-[2025-06-06 17:55:04] Waiting for a to connect for file transfer on port 4063...
-[2025-06-06 17:55:04] Relaying message. Path: b -> c -> a
-[2025-06-06 17:55:04] Accepted P2P connection from ('127.0.0.1', 4065)
-[2025-06-06 17:55:04] Successfully relayed message to a
-[2025-06-06 17:55:04] Received final message via path: b -> c -> a
-[2025-06-06 17:55:04] Checksum VERIFIED for message from b
-[2025-06-06 17:55:15] Constructing message for a via path: b -> c -> a
-[2025-06-06 17:55:15] Message sent to first hop: c
-[2025-06-06 17:55:15] Accepted P2P connection from ('127.0.0.1', 4071)
-[2025-06-06 17:55:15] Waiting for a to connect for file transfer on port 4070...
-[2025-06-06 17:55:15] Relaying message. Path: b -> c -> a
-[2025-06-06 17:55:15] Successfully relayed message to a
-[2025-06-06 17:55:15] Accepted P2P connection from ('127.0.0.1', 4072)
-[2025-06-06 17:55:15] Received final message via path: b -> c -> a
-[2025-06-06 17:55:15] Checksum VERIFIED for message from b
-[2025-06-06 17:55:34] Connected to b to receive file 'تمرین سوم.pdf'.
-[2025-06-06 17:55:34] a connected for file transfer.
-[2025-06-06 17:55:35] File 'تمرین سوم.pdf' sent successfully to a.
-[2025-06-06 17:55:35] File 'تمرین سوم.pdf' received successfully.
-[2025-06-06 17:55:53] Requesting voice call with b
-[2025-06-06 17:55:53] Constructing message for b via path: a -> c -> b
-[2025-06-06 17:55:53] Message sent to first hop: c
-[2025-06-06 17:55:53] Accepted P2P connection from ('127.0.0.1', 4088)
-[2025-06-06 17:55:53] Relaying message. Path: a -> c -> b
-[2025-06-06 17:55:53] Successfully relayed message to b
-[2025-06-06 17:55:53] Accepted P2P connection from ('127.0.0.1', 4089)
-[2025-06-06 17:55:53] Received final message via path: a -> c -> b
-[2025-06-06 17:55:53] Checksum VERIFIED for message from a
-[2025-06-06 17:56:00] Accepting voice call from a
-[2025-06-06 17:56:00] Constructing message for a via path: b -> c -> a
-[2025-06-06 17:56:00] Message sent to first hop: c
-[2025-06-06 17:56:00] Accepted P2P connection from ('127.0.0.1', 4097)
-[2025-06-06 17:56:00] Starting voice call session with a (127.0.0.1:4035)
-[2025-06-06 17:56:00] Relaying message. Path: b -> c -> a
-[2025-06-06 17:56:00] Successfully relayed message to a
-0.0.1', 4098)
-[2025-06-06 17:56:00] Received final message via path: b -> c -> a
-[2025-06-06 17:56:00] Checksum VERIFIED for message from b
-[2025-06-06 17:56:00] Starting voice call session with b (127.0.0.1:4038)
-[2025-06-06 17:56:05] Constructing message for a via path: b -> c -> a
-[2025-06-06 17:56:05] Message sent to first hop: c
-[2025-06-06 17:56:05] Accepted P2P connection from ('127.0.0.1', 4101)
-[2025-06-06 17:56:05] Relaying message. Path: b -> c -> a
-[2025-06-06 17:56:05] Accepted P2P connection from ('127.0.0.1', 4102)
-[2025-06-06 17:56:05] Successfully relayed message to a
-[2025-06-06 17:56:05] Received final message via path: b -> c -> a
-[2025-06-06 17:56:05] Checksum VERIFIED for message from b
-[2025-06-06 17:56:05] Voice call with b ended. Duration: 5.21s
-[2025-06-06 17:56:05] Voice call with a ended. Duration: 5.22s
-[2025-06-06 17:56:13] Chat history saved.
-[2025-06-06 17:56:13] Deregistered from tracker.
-[2025-06-06 17:56:13] Client 'a' has been stopped.
-[2025-06-06 17:56:15] Chat history saved.
-[2025-06-06 17:56:15] Deregistered from tracker.
-[2025-06-06 17:56:15] Client 'b' has been stopped.
-[2025-06-06 17:56:16] Chat history saved.
-[2025-06-06 17:56:16] Deregistered from tracker.
-[2025-06-06 17:56:16] Client 'c' has been stopped.
-[2025-06-06 17:57:06] Chat history loaded.
-[2025-06-06 17:57:06] Successfully registered with tracker.
-[2025-06-06 17:57:06] Client 'a' started. Listening for P2P on 0.0.0.0:4110
-[2025-06-06 17:57:14] Chat history loaded.
-[2025-06-06 17:57:14] Successfully registered with tracker.
-[2025-06-06 17:57:14] Client 'b' started. Listening for P2P on 0.0.0.0:4113
-[2025-06-06 17:57:24] Chat history loaded.
-[2025-06-06 17:57:24] Successfully registered with tracker.
-[2025-06-06 17:57:24] Client 'c' started. Listening for P2P on 0.0.0.0:4117
-[2025-06-06 17:57:41] Chat history saved.
-[2025-06-06 17:57:41] Deregistered from tracker.
-[2025-06-06 17:57:41] Client 'c' has been stopped.
-[2025-06-06 17:57:42] Chat history saved.
-[2025-06-06 17:57:42] Deregistered from tracker.
-[2025-06-06 17:57:42] Client 'a' has been stopped.
+[2025-06-09 21:30:00] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:00] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:00] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749491992.542119}}
+[2025-06-09 21:30:02] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:02] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:02] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492000.970513}}
+[2025-06-09 21:30:03] [CRYPTO] Generating new RSA-2048 key pair.
+[2025-06-09 21:30:03] [INFO] Chat history loaded from file.
+[2025-06-09 21:30:03] [INFO] Client 'c' starting up...
+[2025-06-09 21:30:03] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:03] [NETWORK] Sending command 'REGISTER' to tracker.
+[2025-06-09 21:30:03] [NETWORK] Received response from tracker: {'status': 'OK', 'message': 'Registered successfully'}
+[2025-06-09 21:30:03] [INFO] Successfully registered with tracker.
+[2025-06-09 21:30:03] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:03] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:03] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492000.970513}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492002.549165}}
+[2025-06-09 21:30:03] [P2P] P2P listener started on 0.0.0.0:14531 using TCP.
+[2025-06-09 21:30:03] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:03] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:03] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492000.970513}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492002.549165}}
+[2025-06-09 21:30:10] [NETWORK] Opening TCP connection to first hop 'b' to send a message.
+[2025-06-09 21:30:10] [CRYPTO] Starting Onion Encryption for a 'text' message to 'a'.
+[2025-06-09 21:30:10] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14535) via TCP.
+[2025-06-09 21:30:10] [CRYPTO] Selected onion path: c -> b -> a
+[2025-06-09 21:30:10] [CRYPTO] Creating innermost layer for recipient 'a'.
+[2025-06-09 21:30:10] [CRYPTO] Generated SHA-256 checksum for content: 20f65c28671b40937c5bf23acc7c6f37e5a5ec0622e347b57685725df5ba9e50
+[2025-06-09 21:30:10] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:10] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:10] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:10] [CRYPTO] Creating outer layer for relay 'b'.
+[2025-06-09 21:30:10] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:10] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:10] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:10] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:10] [P2P] Message sent to first hop: b
+[2025-06-09 21:30:10] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14535).
+[2025-06-09 21:30:10] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:10] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:10] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:10] [P2P] Message is not for me. Relaying to next hop: a. Path: c -> b -> a
+[2025-06-09 21:30:10] [NETWORK] Connecting to next hop 'a' at 127.0.0.1:14513 via TCP.
+[2025-06-09 21:30:10] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14536) via TCP.
+[2025-06-09 21:30:10] [P2P] Successfully relayed message to a
+[2025-06-09 21:30:10] [P2P] Peer at ('127.0.0.1', 14535) closed the connection.
+14536).
+[2025-06-09 21:30:10] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:10] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:10] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:10] [P2P] Message is for me. Final destination reached. Path: c -> b -> a
+[2025-06-09 21:30:10] [INFO] Processing final message of type 'text' from 'c'.
+[2025-06-09 21:30:10] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:10] [INFO] Checksum VERIFIED for message from c. Data is intact.
+[2025-06-09 21:30:10] [P2P] Peer at ('127.0.0.1', 14536) closed the connection.
+[2025-06-09 21:30:10] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:10] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:10] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492002.549165}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492003.9560852}}
+[2025-06-09 21:30:12] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:12] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:12] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492010.9953957}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492003.9560852}}
+[2025-06-09 21:30:13] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:13] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:13] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492010.9953957}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492012.5673575}}
+[2025-06-09 21:30:21] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:21] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:21] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492012.5673575}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492013.9655802}}
+[2025-06-09 21:30:22] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:22] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:22] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492021.00878}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492013.9655802}}
+[2025-06-09 21:30:23] [INFO] Initiating voice call with 'c'. Sending 'call_request' via Onion/TCP.
+[2025-06-09 21:30:23] [NETWORK] Opening TCP connection to first hop 'a' to send a message.
+[2025-06-09 21:30:23] [CRYPTO] Starting Onion Encryption for a 'call_request' message to 'c'.
+[2025-06-09 21:30:23] [CRYPTO] Selected onion path: b -> a -> c
+[2025-06-09 21:30:23] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14542) via TCP.
+[2025-06-09 21:30:23] [CRYPTO] Creating innermost layer for recipient 'c'.
+[2025-06-09 21:30:23] [CRYPTO] Generated SHA-256 checksum for content: 4d9a0346766d2c9380a4f92d1f4f860edde8dbe3437230a0372808b71b3f2ff0
+[2025-06-09 21:30:23] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:23] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:23] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:23] [CRYPTO] Creating outer layer for relay 'a'.
+[2025-06-09 21:30:23] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:23] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:23] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:23] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:23] [P2P] Message sent to first hop: a
+[2025-06-09 21:30:23] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14542).
+[2025-06-09 21:30:23] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:23] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:23] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:23] [P2P] Message is not for me. Relaying to next hop: c. Path: b -> a -> c
+[2025-06-09 21:30:23] [NETWORK] Connecting to next hop 'c' at 127.0.0.1:14531 via TCP.
+[2025-06-09 21:30:23] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14543) via TCP.
+[2025-06-09 21:30:23] [P2P] Successfully relayed message to c
+[2025-06-09 21:30:23] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14543).
+[2025-06-09 21:30:23] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:23] [P2P] Peer at ('127.0.0.1', 14542) closed the connection.
+[2025-06-09 21:30:23] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:23] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:23] [P2P] Message is for me. Final destination reached. Path: b -> a -> c
+[2025-06-09 21:30:23] [INFO] Processing final message of type 'call_request' from 'b'.
+[2025-06-09 21:30:23] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:23] [INFO] Checksum VERIFIED for message from b. Data is intact.
+[2025-06-09 21:30:23] [P2P] Peer at ('127.0.0.1', 14543) closed the connection.
+[2025-06-09 21:30:23] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:23] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:23] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492021.00878}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492022.579488}}
+[2025-06-09 21:30:28] [INFO] Accepting voice call from 'b'. Sending 'call_accepted' via Onion/TCP.
+[2025-06-09 21:30:28] [NETWORK] Opening TCP connection to first hop 'a' to send a message.
+[2025-06-09 21:30:28] [CRYPTO] Starting Onion Encryption for a 'call_accepted' message to 'b'.
+[2025-06-09 21:30:28] [CRYPTO] Selected onion path: c -> a -> b
+[2025-06-09 21:30:28] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14545) via TCP.
+[2025-06-09 21:30:28] [CRYPTO] Creating innermost layer for recipient 'b'.
+[2025-06-09 21:30:28] [CRYPTO] Generated SHA-256 checksum for content: 48862166e6b797758718888e27e1bab422e94aad722144da50c77ee0d9b48831
+[2025-06-09 21:30:28] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:28] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:28] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:28] [CRYPTO] Creating outer layer for relay 'a'.
+[2025-06-09 21:30:28] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:28] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:28] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:28] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:28] [P2P] Message sent to first hop: a
+[2025-06-09 21:30:28] [INFO] Starting voice call session with b (127.0.0.1:14524).
+[2025-06-09 21:30:28] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14545).
+[2025-06-09 21:30:28] [NETWORK] Protocol: UDP. My listening port: 14532. Target port: 14524.
+[2025-06-09 21:30:28] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:28] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:28] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:28] [P2P] Message is not for me. Relaying to next hop: b. Path: c -> a -> b
+[2025-06-09 21:30:28] [NETWORK] Connecting to next hop 'b' at 127.0.0.1:14523 via TCP.
+[2025-06-09 21:30:28] [P2P] Successfully relayed message to b
+[2025-06-09 21:30:28] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14546) via TCP.
+[2025-06-09 21:30:28] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14546).
+[2025-06-09 21:30:28] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:28] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:28] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:28] [P2P] Message is for me. Final destination reached. Path: c -> a -> b
+[2025-06-09 21:30:28] [INFO] Processing final message of type 'call_accepted' from 'c'.
+[2025-06-09 21:30:28] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:28] [INFO] Checksum VERIFIED for message from c. Data is intact.
+[2025-06-09 21:30:28] [INFO] Starting voice call session with c (127.0.0.1:14532).
+[2025-06-09 21:30:28] [NETWORK] Protocol: UDP. My listening port: 14524. Target port: 14532.
+[2025-06-09 21:30:28] [INFO] Voice call streams (PyAudio) and UDP socket started successfully.
+[2025-06-09 21:30:28] [INFO] Voice call streams (PyAudio) and UDP socket started successfully.
+[2025-06-09 21:30:28] [P2P] Peer at ('127.0.0.1', 14546) closed the connection.
+[2025-06-09 21:30:31] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:31] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:31] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492022.579488}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492023.9874866}}
+[2025-06-09 21:30:32] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:32] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:32] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492031.020298}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492023.9874866}}
+[2025-06-09 21:30:33] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:33] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:33] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492031.020298}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492032.589696}}
+[2025-06-09 21:30:36] [INFO] Ending voice call with 'c'. Sending 'call_ended' message via Onion/TCP.
+[2025-06-09 21:30:36] [NETWORK] Opening TCP connection to first hop 'a' to send a message.
+[2025-06-09 21:30:36] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14550) via TCP.
+[2025-06-09 21:30:36] [CRYPTO] Starting Onion Encryption for a 'call_ended' message to 'c'.
+[2025-06-09 21:30:36] [CRYPTO] Selected onion path: b -> a -> c
+[2025-06-09 21:30:36] [CRYPTO] Creating innermost layer for recipient 'c'.
+[2025-06-09 21:30:36] [CRYPTO] Generated SHA-256 checksum for content: e87ba7a0b779d8b797f86d19604504496f23b4d1e31ed4721d9dc8634172b723
+[2025-06-09 21:30:36] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:36] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:36] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:36] [CRYPTO] Creating outer layer for relay 'a'.
+[2025-06-09 21:30:36] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:36] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:36] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:36] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:36] [P2P] Message sent to first hop: a
+[2025-06-09 21:30:36] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14550).
+[2025-06-09 21:30:36] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:36] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:36] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:36] [P2P] Message is not for me. Relaying to next hop: c. Path: b -> a -> c
+[2025-06-09 21:30:36] [NETWORK] Connecting to next hop 'c' at 127.0.0.1:14531 via TCP.
+[2025-06-09 21:30:36] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14551) via TCP.
+[2025-06-09 21:30:36] [P2P] Successfully relayed message to c
+[2025-06-09 21:30:36] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14551).
+[2025-06-09 21:30:36] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:36] [P2P] Peer at ('127.0.0.1', 14550) closed the connection.
+[2025-06-09 21:30:36] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:36] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:36] [P2P] Message is for me. Final destination reached. Path: b -> a -> c
+[2025-06-09 21:30:36] [INFO] Processing final message of type 'call_ended' from 'b'.
+[2025-06-09 21:30:36] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:36] [INFO] Checksum VERIFIED for message from b. Data is intact.
+[2025-06-09 21:30:36] [INFO] Received 'call_ended' message from 'b'.
+[2025-06-09 21:30:36] [INFO] Voice call with c ended. UDP socket and streams closed. Duration: 7.97s
+[2025-06-09 21:30:36] [INFO] Voice call with b ended. UDP socket and streams closed. Duration: 8.07s
+[2025-06-09 21:30:36] [P2P] Peer at ('127.0.0.1', 14551) closed the connection.
+[2025-06-09 21:30:41] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:41] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:41] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492032.589696}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492033.9958813}}
+[2025-06-09 21:30:42] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:42] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:42] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492041.0314698}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492033.9958813}}
+[2025-06-09 21:30:44] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:44] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:44] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492041.0314698}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492042.5974462}}
+[2025-06-09 21:30:51] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:51] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:51] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492042.5974462}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492044.0141327}}
+[2025-06-09 21:30:51] [INFO] Initiating voice call with 'c'. Sending 'call_request' via Onion/TCP.
+[2025-06-09 21:30:51] [NETWORK] Opening TCP connection to first hop 'a' to send a message.
+[2025-06-09 21:30:51] [CRYPTO] Starting Onion Encryption for a 'call_request' message to 'c'.
+[2025-06-09 21:30:51] [CRYPTO] Selected onion path: b -> a -> c
+[2025-06-09 21:30:51] [CRYPTO] Creating innermost layer for recipient 'c'.
+[2025-06-09 21:30:51] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14556) via TCP.
+[2025-06-09 21:30:51] [CRYPTO] Generated SHA-256 checksum for content: 4d9a0346766d2c9380a4f92d1f4f860edde8dbe3437230a0372808b71b3f2ff0
+[2025-06-09 21:30:51] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:51] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:51] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:51] [CRYPTO] Creating outer layer for relay 'a'.
+[2025-06-09 21:30:51] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:51] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:51] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:51] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:51] [P2P] Message sent to first hop: a
+[2025-06-09 21:30:51] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14556).
+[2025-06-09 21:30:51] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:51] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:51] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:51] [P2P] Message is not for me. Relaying to next hop: c. Path: b -> a -> c
+[2025-06-09 21:30:51] [NETWORK] Connecting to next hop 'c' at 127.0.0.1:14531 via TCP.
+[2025-06-09 21:30:51] [P2P] Successfully relayed message to c
+[2025-06-09 21:30:51] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14557) via TCP.
+[2025-06-09 21:30:51] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14557).
+[2025-06-09 21:30:51] [P2P] Peer at ('127.0.0.1', 14556) closed the connection.
+[2025-06-09 21:30:51] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:51] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:51] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:51] [P2P] Message is for me. Final destination reached. Path: b -> a -> c
+[2025-06-09 21:30:51] [INFO] Processing final message of type 'call_request' from 'b'.
+[2025-06-09 21:30:51] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:51] [INFO] Checksum VERIFIED for message from b. Data is intact.
+[2025-06-09 21:30:51] [P2P] Peer at ('127.0.0.1', 14557) closed the connection.
+[2025-06-09 21:30:52] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:52] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:52] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492051.0475812}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492044.0141327}}
+[2025-06-09 21:30:54] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:30:54] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:30:54] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492051.0475812}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492052.604522}}
+[2025-06-09 21:30:55] [INFO] Accepting voice call from 'b'. Sending 'call_accepted' via Onion/TCP.
+[2025-06-09 21:30:55] [NETWORK] Opening TCP connection to first hop 'a' to send a message.
+[2025-06-09 21:30:55] [CRYPTO] Starting Onion Encryption for a 'call_accepted' message to 'b'.
+[2025-06-09 21:30:55] [CRYPTO] Selected onion path: c -> a -> b
+[2025-06-09 21:30:55] [CRYPTO] Creating innermost layer for recipient 'b'.
+[2025-06-09 21:30:55] [CRYPTO] Generated SHA-256 checksum for content: 48862166e6b797758718888e27e1bab422e94aad722144da50c77ee0d9b48831
+[2025-06-09 21:30:55] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14560) via TCP.
+[2025-06-09 21:30:55] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:55] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:55] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:55] [CRYPTO] Creating outer layer for relay 'a'.
+[2025-06-09 21:30:55] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:55] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:55] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:55] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:55] [P2P] Message sent to first hop: a
+[2025-06-09 21:30:55] [INFO] Starting voice call session with b (127.0.0.1:14524).
+[2025-06-09 21:30:55] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14560).
+[2025-06-09 21:30:55] [NETWORK] Protocol: UDP. My listening port: 14532. Target port: 14524.
+[2025-06-09 21:30:55] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:55] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:55] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:55] [P2P] Message is not for me. Relaying to next hop: b. Path: c -> a -> b
+[2025-06-09 21:30:55] [NETWORK] Connecting to next hop 'b' at 127.0.0.1:14523 via TCP.
+[2025-06-09 21:30:55] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14561) via TCP.
+[2025-06-09 21:30:55] [P2P] Successfully relayed message to b
+[2025-06-09 21:30:55] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14561).
+[2025-06-09 21:30:55] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:55] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:55] [P2P] Peer at ('127.0.0.1', 14560) closed the connection.
+[2025-06-09 21:30:55] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:55] [P2P] Message is for me. Final destination reached. Path: c -> a -> b
+[2025-06-09 21:30:55] [INFO] Processing final message of type 'call_accepted' from 'c'.
+[2025-06-09 21:30:55] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:55] [INFO] Checksum VERIFIED for message from c. Data is intact.
+[2025-06-09 21:30:55] [INFO] Starting voice call session with c (127.0.0.1:14532).
+[2025-06-09 21:30:55] [NETWORK] Protocol: UDP. My listening port: 14524. Target port: 14532.
+[2025-06-09 21:30:55] [INFO] Voice call streams (PyAudio) and UDP socket started successfully.
+[2025-06-09 21:30:55] [INFO] Voice call streams (PyAudio) and UDP socket started successfully.
+[2025-06-09 21:30:55] [P2P] Peer at ('127.0.0.1', 14561) closed the connection.
+[2025-06-09 21:30:59] [INFO] Ending voice call with 'c'. Sending 'call_ended' message via Onion/TCP.
+[2025-06-09 21:30:59] [NETWORK] Opening TCP connection to first hop 'a' to send a message.
+[2025-06-09 21:30:59] [CRYPTO] Starting Onion Encryption for a 'call_ended' message to 'c'.
+[2025-06-09 21:30:59] [CRYPTO] Selected onion path: b -> a -> c
+[2025-06-09 21:30:59] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14562) via TCP.
+[2025-06-09 21:30:59] [CRYPTO] Creating innermost layer for recipient 'c'.
+[2025-06-09 21:30:59] [CRYPTO] Generated SHA-256 checksum for content: e87ba7a0b779d8b797f86d19604504496f23b4d1e31ed4721d9dc8634172b723
+[2025-06-09 21:30:59] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:30:59] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:30:59] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:30:59] [CRYPTO] Creating outer layer for relay 'a'.
+[2025-06-09 21:30:59] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:30:59] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:30:59] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:30:59] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:30:59] [P2P] Message sent to first hop: a
+[2025-06-09 21:30:59] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14562).
+[2025-06-09 21:30:59] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:59] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:59] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:59] [P2P] Message is not for me. Relaying to next hop: c. Path: b -> a -> c
+[2025-06-09 21:30:59] [NETWORK] Connecting to next hop 'c' at 127.0.0.1:14531 via TCP.
+[2025-06-09 21:30:59] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14563) via TCP.
+[2025-06-09 21:30:59] [P2P] Successfully relayed message to c
+[2025-06-09 21:30:59] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14563).
+[2025-06-09 21:30:59] [P2P] Peer at ('127.0.0.1', 14562) closed the connection.
+[2025-06-09 21:30:59] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:30:59] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:30:59] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:30:59] [P2P] Message is for me. Final destination reached. Path: b -> a -> c
+[2025-06-09 21:30:59] [INFO] Processing final message of type 'call_ended' from 'b'.
+[2025-06-09 21:30:59] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:30:59] [INFO] Checksum VERIFIED for message from b. Data is intact.
+[2025-06-09 21:30:59] [INFO] Received 'call_ended' message from 'b'.
+[2025-06-09 21:30:59] [INFO] Voice call with b ended. UDP socket and streams closed. Duration: 4.09s
+[2025-06-09 21:30:59] [P2P] Peer at ('127.0.0.1', 14563) closed the connection.
+[2025-06-09 21:30:59] [INFO] Voice call with c ended. UDP socket and streams closed. Duration: 4.00s
+[2025-06-09 21:31:01] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:01] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:01] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492052.604522}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492054.0198574}}
+[2025-06-09 21:31:02] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:02] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:02] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492061.063744}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492054.0198574}}
+[2025-06-09 21:31:04] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:04] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:04] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492061.063744}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492062.6217833}}
+[2025-06-09 21:31:11] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:11] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:11] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492062.6217833}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492064.0293427}}
+[2025-06-09 21:31:12] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:12] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:12] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492071.075992}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492064.0293427}}
+[2025-06-09 21:31:14] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:14] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:14] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492071.075992}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492072.6317616}}
+[2025-06-09 21:31:21] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:21] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:21] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492072.6317616}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492074.047509}}
+[2025-06-09 21:31:22] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:22] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:22] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492081.0910285}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492074.047509}}
+[2025-06-09 21:31:24] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:24] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:24] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492081.0910285}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492082.6393313}}
+[2025-06-09 21:31:29] [NETWORK] Opening TCP connection to first hop 'b' to send a message.
+[2025-06-09 21:31:29] [CRYPTO] Starting Onion Encryption for a 'text' message to 'a'.
+[2025-06-09 21:31:29] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14573) via TCP.
+[2025-06-09 21:31:29] [CRYPTO] Selected onion path: c -> b -> a
+[2025-06-09 21:31:29] [CRYPTO] Creating innermost layer for recipient 'a'.
+[2025-06-09 21:31:29] [CRYPTO] Generated SHA-256 checksum for content: 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+[2025-06-09 21:31:29] [CRYPTO] Generated Fernet symmetric key for recipient.
+[2025-06-09 21:31:29] [CRYPTO] Encrypted final payload with symmetric key.
+[2025-06-09 21:31:29] [CRYPTO] Encrypted symmetric key with recipient's public key (RSA-OAEP).
+[2025-06-09 21:31:29] [CRYPTO] Creating outer layer for relay 'b'.
+[2025-06-09 21:31:29] [CRYPTO] Generated Fernet symmetric key for relay.
+[2025-06-09 21:31:29] [CRYPTO] Encrypted relay payload with symmetric key.
+[2025-06-09 21:31:29] [CRYPTO] Encrypted symmetric key with relay's public key (RSA-OAEP).
+[2025-06-09 21:31:29] [CRYPTO] Onion encryption complete. Sending message.
+[2025-06-09 21:31:29] [P2P] Message sent to first hop: b
+[2025-06-09 21:31:29] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14573).
+[2025-06-09 21:31:29] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:31:29] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:31:29] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:31:29] [P2P] Message is not for me. Relaying to next hop: a. Path: c -> b -> a
+[2025-06-09 21:31:29] [NETWORK] Connecting to next hop 'a' at 127.0.0.1:14513 via TCP.
+[2025-06-09 21:31:29] [P2P] Successfully relayed message to a
+[2025-06-09 21:31:29] [P2P] Accepted incoming P2P connection from ('127.0.0.1', 14574) via TCP.
+[2025-06-09 21:31:29] [P2P] Received an onion-wrapped message from ('127.0.0.1', 14574).
+[2025-06-09 21:31:29] [CRYPTO] Starting Onion Decryption Process.
+[2025-06-09 21:31:29] [CRYPTO] Decrypting symmetric key with my private key (RSA-OAEP).
+[2025-06-09 21:31:29] [CRYPTO] Successfully decrypted one layer of the onion message.
+[2025-06-09 21:31:29] [P2P] Message is for me. Final destination reached. Path: c -> b -> a
+[2025-06-09 21:31:29] [INFO] Processing final message of type 'text' from 'c'.
+[2025-06-09 21:31:29] [INFO] Performing checksum verification for data integrity.
+[2025-06-09 21:31:29] [INFO] Checksum VERIFIED for message from c. Data is intact.
+[2025-06-09 21:31:29] [P2P] Peer at ('127.0.0.1', 14574) closed the connection.
+[2025-06-09 21:31:31] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:31] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:31] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492082.6393313}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492084.0532484}}
+[2025-06-09 21:31:32] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:32] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:32] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492091.1021366}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492084.0532484}}
+[2025-06-09 21:31:34] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:34] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:34] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492091.1021366}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492092.6464112}}
+[2025-06-09 21:31:41] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:41] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:41] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492092.6464112}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492094.063905}}
+[2025-06-09 21:31:42] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:42] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:42] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492101.1283233}, 'c': {'ip': '127.0.0.1', 'port': 14531, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnvleQldxYiZiWXuhBcwq\n2/7aijPlhHVs66VAFriIXT27NdKWhvMUkhqFpjsLqvtUB54w46Dgqm2fgqyK2wtE\nj1ck9cydMeapsYaOSfKkTcBr5X15vZpZ0bKrasdXBhxM8t7MVPY0sy6fy0PifQFe\ny2UMJiDFf4BGVXONbMSigFSZDfV4abYZjBkz7zP2kwtXsG/z/aLZpVbgm9CGrLFp\nYTqfBnrjdaiznMiPYLIhuwwgLIcuazyiUiT823G/lP7uPkxbAVVgXslSZ2yK54Ww\nyMZxj6iDge7mkuxmCCKsLxkPPPNX0E8LzNuMHY84mYCVii/FBtJnPbcr2tVXzfRX\n6QIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492094.063905}}
+[2025-06-09 21:31:44] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:44] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:44] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492101.1283233}, 'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492102.654565}}
+[2025-06-09 21:31:48] [INFO] Chat history saved to file.
+[2025-06-09 21:31:48] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:48] [NETWORK] Sending command 'DEREGISTER' to tracker.
+[2025-06-09 21:31:48] [NETWORK] Received response from tracker: {'status': 'OK', 'message': 'Deregistered'}
+[2025-06-09 21:31:48] [INFO] Deregistered from tracker.
+[2025-06-09 21:31:48] [INFO] Client 'c' has been stopped.
+[2025-06-09 21:31:51] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:51] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:51] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492102.654565}}
+[2025-06-09 21:31:52] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:31:52] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:31:52] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492111.149331}}
+[2025-06-09 21:32:01] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:01] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:32:01] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492112.662165}}
+[2025-06-09 21:32:02] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:02] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:32:02] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492121.159249}}
+[2025-06-09 21:32:11] [ERROR] Cannot send message: Not enough users online for a relay.
+[2025-06-09 21:32:11] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:11] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:32:11] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492122.6686826}}
+[2025-06-09 21:32:12] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:12] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:32:12] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492131.166044}}
+[2025-06-09 21:32:21] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:21] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:32:21] [NETWORK] Received response from tracker: {'b': {'ip': '127.0.0.1', 'port': 14523, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3+8jBOYhdlEUGnZYn4Gc\nHwUQKGntv+BJJNyI4P079+N+2swzN8ih8oEuzCcJj5Zrd8uf0bzKDqxuxy3+fx9K\nmbpnphkB3HNoAgaA31DsGLDIrGTFsHcktiAeS+cAQfOR+h5/QsOjCsMij5a2DSiO\nwY1CTndesbQQN/Ayrr3HIQ3PMpSz6xBu60c2/USev6GFxHVP5nm+tjlKi1XEHJZa\n3rTqz+j4Scn5afy+XU5KcwEVSKsBd4XJYWyf6Sh/EtpoQVHb+4slPpR33aRflxtk\nSnmIve9nTsj/h7Rwpu6l+kgqAWHnyxB1mL8RlnmQq35yLT7WPmF6WWAJ+/Tpc7HB\naQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492132.6759381}}
+[2025-06-09 21:32:22] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:22] [NETWORK] Sending command 'GET_USERS' to tracker.
+[2025-06-09 21:32:22] [NETWORK] Received response from tracker: {'a': {'ip': '127.0.0.1', 'port': 14513, 'public_key': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvHHPv5FS8kVqN23wauWi\nHmkF/I6Gqvj74t2HTkwGXzDRuAa9n8BsOBqcRLDVQ8515XP0azPcM8Ji/tMUojHO\nzmt6B7OnJzORWMTDkBYs0rFT4smuEjKOiJoafamDNbJHeNd6svoIF2Chf+rhQwdP\nv7s756ACO4TK8TU/waFOEJzGnm5xcDg17c5OyuphBuzjZILI63CVcTynyiU3fxaB\n6BU+hk8j1v3nXQTZ3icKUdx0EznwuYdDcBv42yQLUBFx3s0I6Db4vCfLQ/K0VwNk\nx4ikO7XzlCaH5dVKhDultbXi01rtC/y1zBW94BzAueqXFs8LqC6bd5UxQi4hPhWX\nVQIDAQAB\n-----END PUBLIC KEY-----\n', 'last_seen': 1749492141.1755328}}
+[2025-06-09 21:32:23] [INFO] Chat history saved to file.
+[2025-06-09 21:32:23] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:23] [NETWORK] Sending command 'DEREGISTER' to tracker.
+[2025-06-09 21:32:23] [NETWORK] Received response from tracker: {'status': 'OK', 'message': 'Deregistered'}
+[2025-06-09 21:32:23] [INFO] Deregistered from tracker.
+[2025-06-09 21:32:23] [INFO] Client 'a' has been stopped.
+[2025-06-09 21:32:24] [INFO] Chat history saved to file.
+[2025-06-09 21:32:24] [NETWORK] Connecting to tracker at 127.0.0.1:8000 via TCP.
+[2025-06-09 21:32:24] [NETWORK] Sending command 'DEREGISTER' to tracker.
+[2025-06-09 21:32:24] [NETWORK] Received response from tracker: {'status': 'OK', 'message': 'Deregistered'}
+[2025-06-09 21:32:24] [INFO] Deregistered from tracker.
+[2025-06-09 21:32:24] [INFO] Client 'b' has been stopped.

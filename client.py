@@ -1,4 +1,4 @@
-# client.py (Final Version with All Features)
+
 import customtkinter as ctk
 import socket
 import threading
@@ -8,6 +8,9 @@ import random
 import hashlib
 import base64
 import os
+import math
+import struct
+import queue
 from tkinter import filedialog, messagebox
 from datetime import datetime
 
@@ -23,20 +26,30 @@ except ImportError:
     print("Warning: voice_call.py not found. Voice call feature will be disabled.")
 
 # --- Constants ---
-P2P_BUFFER_SIZE = 8192
-TRACKER_BUFFER_SIZE = 4096
-LOG_FILE = "report.log"
-FILE_CHUNK_SIZE = 4096
+LOG_FILE = "report.log" 
+LOG_LOCK = threading.Lock()
+FILE_CHUNK_SIZE = 4096 * 2
 
 # --- Utility Functions ---
-def log_event(message):
+def log_event(message, level="INFO", log_file_override=None):
+    """
+    Writes a structured message to the log file and prints to console.
+    Allows overriding the log file path for testing purposes.
+    """
+    global LOG_FILE
+    output_file = log_file_override if log_file_override is not None else LOG_FILE
+
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    log_message = f"[{timestamp}] {message}\n"
+    log_message = f"[{timestamp}] [{level}] {message}\n"
     print(log_message.strip())
-    with open(LOG_FILE, "a", encoding='utf-8') as f:
-        f.write(log_message)
+    
+    # Use the global lock to prevent race conditions
+    with LOG_LOCK:
+        with open(output_file, "a", encoding='utf-8') as f:
+            f.write(log_message)
 
 def generate_keys():
+    log_event("Generating new RSA-2048 key pair.", level="CRYPTO")
     private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
     return private_key, private_key.public_key()
 
@@ -46,12 +59,39 @@ def serialize_public_key(public_key):
 def deserialize_public_key(pem_data):
     return serialization.load_pem_public_key(pem_data.encode('utf-8'))
 
+def format_filesize(size_bytes):
+    if size_bytes == 0: return "0B"
+    size_name = ("B", "KB", "MB", "GB", "TB")
+    i = int(math.floor(math.log(size_bytes, 1024)))
+    p = math.pow(1024, i)
+    s = round(size_bytes / p, 2)
+    return f"{s} {size_name[i]}"
+
+# --- Network Communication with Framing ---
+def send_framed_message(sock, message_dict):
+    message_json = json.dumps(message_dict).encode('utf-8')
+    header = struct.pack('!I', len(message_json))
+    sock.sendall(header + message_json)
+
+def receive_framed_message(sock):
+    header_data = sock.recv(4)
+    if not header_data: return None
+    message_length = struct.unpack('!I', header_data)[0]
+    
+    full_message_data = b''
+    while len(full_message_data) < message_length:
+        chunk = sock.recv(message_length - len(full_message_data))
+        if not chunk: return None
+        full_message_data += chunk
+        
+    return json.loads(full_message_data.decode('utf-8'))
+
 # --- Backend Logic Class ---
 class SecuriChatClient:
-    def __init__(self, username, tracker_addr, gui_callback):
+    def __init__(self, username, tracker_addr, ui_queue):
         self.username = username
         self.tracker_ip, self.tracker_port = tracker_addr
-        self.gui_callback = gui_callback
+        self.ui_queue = ui_queue
         self.private_key, self.public_key = generate_keys()
         self.public_key_pem = serialize_public_key(self.public_key)
         self.p2p_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -61,12 +101,20 @@ class SecuriChatClient:
         self.running = True
         self.voice_call_instance = None
         self.call_partner = None
+        self.incoming_files = {}
+
+    def queue_ui_update(self, command, data):
+        self.ui_queue.put((command, data))
 
     def start(self):
+        log_event(f"Client '{self.username}' starting up...")
         if not self.register_with_tracker(): return False
+            
+        self.update_user_list() 
+
         threading.Thread(target=self.listen_for_peers, daemon=True).start()
         threading.Thread(target=self.update_user_list_periodically, daemon=True).start()
-        log_event(f"Client '{self.username}' started. Listening for P2P on {self.p2p_ip}:{self.p2p_port}")
+        log_event(f"P2P listener started on {self.p2p_ip}:{self.p2p_port} using TCP.", level="P2P")
         return True
 
     def stop(self):
@@ -79,11 +127,15 @@ class SecuriChatClient:
     def _send_to_tracker(self, command):
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                log_event(f"Connecting to tracker at {self.tracker_ip}:{self.tracker_port} via TCP.", level="NETWORK")
                 s.connect((self.tracker_ip, self.tracker_port))
-                s.sendall(json.dumps(command).encode('utf-8'))
-                return json.loads(s.recv(TRACKER_BUFFER_SIZE).decode('utf-8'))
+                log_event(f"Sending command '{command['command']}' to tracker.", level="NETWORK")
+                send_framed_message(s, command)
+                response = receive_framed_message(s)
+                log_event(f"Received response from tracker: {response}", level="NETWORK")
+                return response
         except Exception as e:
-            log_event(f"Error communicating with tracker: {e}")
+            log_event(f"Error communicating with tracker: {e}", level="ERROR")
             return None
 
     def register_with_tracker(self):
@@ -93,19 +145,24 @@ class SecuriChatClient:
             log_event("Successfully registered with tracker."); return True
         else:
             msg = response.get('message') if response else 'Tracker unreachable'
-            log_event(f"Failed to register with tracker: {msg}")
-            self.gui_callback("show_error", f"Failed to register: {msg}"); return False
+            log_event(f"Failed to register with tracker: {msg}", level="ERROR")
+            self.queue_ui_update("show_error", f"Failed to register: {msg}"); return False
 
     def deregister_from_tracker(self):
         self._send_to_tracker({"command": "DEREGISTER", "username": self.username})
         log_event("Deregistered from tracker.")
 
+    def update_user_list(self):
+
+        response = self._send_to_tracker({"command": "GET_USERS", "username": self.username})
+        if response is not None:
+            self.online_users = response
+            self.queue_ui_update("update_user_list", self.online_users)
+
     def update_user_list_periodically(self):
         while self.running:
-            response = self._send_to_tracker({"command": "GET_USERS", "username": self.username})
-            if response is not None:
-                self.online_users = response
-                self.gui_callback("update_user_list", self.online_users)
+            # The periodic updater now just calls the single-use method
+            self.update_user_list()
             time.sleep(10)
 
     def listen_for_peers(self):
@@ -113,53 +170,67 @@ class SecuriChatClient:
         while self.running:
             try:
                 conn, addr = self.p2p_socket.accept()
-                log_event(f"Accepted P2P connection from {addr}")
+                log_event(f"Accepted incoming P2P connection from {addr} via TCP.", level="P2P")
                 threading.Thread(target=self.handle_peer_connection, args=(conn,), daemon=True).start()
             except OSError: break
 
     def handle_peer_connection(self, conn):
         try:
-            data = conn.recv(P2P_BUFFER_SIZE)
-            if not data: return
-            
-            message = json.loads(data.decode('utf-8'))
-            path = message.get('path')
-            if not path:
-                log_event(f"Received message with no path. Discarding."); return
+            while self.running:
+                message = receive_framed_message(conn)
+                if not message:
+                    log_event(f"Peer at {conn.getpeername()} closed the connection.", level="P2P")
+                    break
+                
+                log_event(f"Received an onion-wrapped message from {conn.getpeername()}.", level="P2P")
+                path = message.get('path')
+                if not path:
+                    log_event(f"Received message with no path. Discarding.", level="ERROR"); continue
 
-            encrypted_sym_key = base64.b64decode(message['sym_key'])
-            sym_key = self.private_key.decrypt(encrypted_sym_key, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
-            
-            fernet = Fernet(sym_key)
-            decrypted_payload = fernet.decrypt(base64.b64decode(message['payload']))
-            inner_message = json.loads(decrypted_payload.decode('utf-8'))
+                # --- Onion Decryption: Layer 1 ---
+                log_event("Starting Onion Decryption Process.", level="CRYPTO")
+                encrypted_sym_key_b64 = message['sym_key']
+                encrypted_sym_key = base64.b64decode(encrypted_sym_key_b64)
+                log_event("Decrypting symmetric key with my private key (RSA-OAEP).", level="CRYPTO")
+                sym_key = self.private_key.decrypt(encrypted_sym_key, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
+                
+                fernet = Fernet(sym_key)
+                encrypted_payload_b64 = message['payload']
+                decrypted_payload = fernet.decrypt(base64.b64decode(encrypted_payload_b64))
+                inner_message = json.loads(decrypted_payload.decode('utf-8'))
+                log_event("Successfully decrypted one layer of the onion message.", level="CRYPTO")
 
-            if inner_message['destination_user'] == self.username:
-                log_event(f"Received final message via path: {path}")
-                self.process_final_message(inner_message)
-            else:
-                log_event(f"Relaying message. Path: {path}")
-                self.relay_message(inner_message, path)
+                if inner_message['destination_user'] == self.username:
+                    log_event(f"Message is for me. Final destination reached. Path: {path}", level="P2P")
+                    self.process_final_message(inner_message)
+                else:
+                    log_event(f"Message is not for me. Relaying to next hop: {inner_message['destination_user']}. Path: {path}", level="P2P")
+                    self.relay_message(inner_message, path)
         except Exception as e:
-            log_event(f"Error in handle_peer_connection: {type(e).__name__}: {e}")
+            log_event(f"Error in handle_peer_connection: {type(e).__name__}: {e}", level="ERROR")
         finally:
             conn.close()
 
     def process_final_message(self, message):
         sender, msg_type, content = message['sender_user'], message['type'], message['content']
         
-        if message.get('checksum') != hashlib.sha256(str(content).encode('utf-8')).hexdigest():
-            log_event(f"Checksum MISMATCH for message from {sender}."); content = f"[CHECKSUM FAILED] {content}"
+        # --- Error Detection: Checksum Verification ---
+        log_event(f"Processing final message of type '{msg_type}' from '{sender}'.", level="INFO")
+        log_event("Performing checksum verification for data integrity.", level="INFO")
+        calculated_checksum = hashlib.sha256(str(content).encode('utf-8')).hexdigest()
+        if message.get('checksum') != calculated_checksum:
+            log_event(f"Checksum MISMATCH for message from {sender}. Data may be corrupt.", level="ERROR")
+            content = f"[CHECKSUM FAILED] {content}"
         else:
-            log_event(f"Checksum VERIFIED for message from {sender}")
+            log_event(f"Checksum VERIFIED for message from {sender}. Data is intact.", level="INFO")
 
-        if msg_type == "text": self.gui_callback("receive_message", (sender, content))
-        elif msg_type == "call_request": self.gui_callback("incoming_call", (sender, int(content)))
+        if msg_type == "text": self.queue_ui_update("receive_message", (sender, content))
+        elif msg_type == "call_request": self.queue_ui_update("incoming_call", (sender, int(content)))
         elif msg_type == "call_accepted": self.start_voice_call_session(sender, int(content), is_initiator=True)
         elif msg_type == "call_ended": self.end_voice_call_session(sender, initiated_by_other=True)
-        elif msg_type == "file_transfer_request":
-            file_info = json.loads(content)
-            self.gui_callback("incoming_file", (sender, file_info))
+        elif msg_type == "file_start": self.handle_file_start(sender, content)
+        elif msg_type == "file_chunk": self.handle_file_chunk(sender, content)
+        elif msg_type == "file_end": self.handle_file_end(sender, content)
 
     def relay_message(self, inner_message, original_path):
         next_hop_user = inner_message['destination_user']
@@ -167,124 +238,175 @@ class SecuriChatClient:
             next_hop_info = self.online_users[next_hop_user]
             try:
                 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as relay_socket:
+                    log_event(f"Connecting to next hop '{next_hop_user}' at {next_hop_info['ip']}:{next_hop_info['port']} via TCP.", level="NETWORK")
                     relay_socket.connect((next_hop_info['ip'], next_hop_info['port']))
                     message_to_forward = inner_message['payload']
                     message_to_forward['path'] = original_path
-                    relay_socket.sendall(json.dumps(message_to_forward).encode('utf-8'))
-                    log_event(f"Successfully relayed message to {next_hop_user}")
+                    send_framed_message(relay_socket, message_to_forward)
+                    log_event(f"Successfully relayed message to {next_hop_user}", level="P2P")
             except Exception as e:
-                log_event(f"Failed to relay message to {next_hop_user}: {e}")
+                log_event(f"Failed to relay message to {next_hop_user}: {e}", level="ERROR")
+        else:
+            log_event(f"Cannot relay message: Next hop user '{next_hop_user}' is offline.", level="ERROR")
 
-    def send_message(self, recipient_user, message_content, msg_type="text"):
-        if recipient_user not in self.online_users:
-            self.gui_callback("show_error", f"Cannot send message. User '{recipient_user}' is offline."); return
-
-        available_relays = [u for u in self.online_users if u != recipient_user]
+    def _send_onion_message(self, sock, recipient_user, message_content, msg_type):
+        # --- Onion Encryption Process ---
+        log_event(f"Starting Onion Encryption for a '{msg_type}' message to '{recipient_user}'.", level="CRYPTO")
+        
+        # For simplicity, this implementation uses a 2-hop path (sender -> relay -> recipient)
+        available_relays = [u for u in self.online_users if u != recipient_user and u != self.username]
         if not available_relays:
-            self.gui_callback("show_error", "Cannot send message: At least 3 users must be online for a relay path."); return
+            log_event("Cannot create onion path: Not enough online users to act as a relay.", level="ERROR")
+            self.queue_ui_update("show_error", "Cannot send message: At least 3 users must be online for a relay path."); return False
 
         relay_user = random.choice(available_relays)
         path = [self.username, relay_user, recipient_user]
-        log_event(f"Constructing message for {recipient_user} via path: {' -> '.join(path)}")
+        log_event(f"Selected onion path: {' -> '.join(path)}", level="CRYPTO")
 
-        final_payload = json.dumps({"sender_user": self.username, "destination_user": recipient_user, "type": msg_type, "content": message_content, "checksum": hashlib.sha256(str(message_content).encode('utf-8')).hexdigest()}).encode('utf-8')
+        # --- Layer 1: For the final recipient ---
+        log_event(f"Creating innermost layer for recipient '{recipient_user}'.", level="CRYPTO")
+        checksum = hashlib.sha256(str(message_content).encode('utf-8')).hexdigest()
+        log_event(f"Generated SHA-256 checksum for content: {checksum}", level="CRYPTO")
+        final_payload = json.dumps({"sender_user": self.username, "destination_user": recipient_user, "type": msg_type, "content": message_content, "checksum": checksum}).encode('utf-8')
+        
         recipient_pk = deserialize_public_key(self.online_users[recipient_user]['public_key'])
         sym_key_for_recipient = Fernet.generate_key()
+        log_event("Generated Fernet symmetric key for recipient.", level="CRYPTO")
         encrypted_payload = Fernet(sym_key_for_recipient).encrypt(final_payload)
-        current_package = {"sym_key": base64.b64encode(recipient_pk.encrypt(sym_key_for_recipient, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))).decode('utf-8'), "payload": base64.b64encode(encrypted_payload).decode('utf-8')}
+        log_event("Encrypted final payload with symmetric key.", level="CRYPTO")
+        
+        encrypted_sym_key_for_recipient = recipient_pk.encrypt(sym_key_for_recipient, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
+        log_event("Encrypted symmetric key with recipient's public key (RSA-OAEP).", level="CRYPTO")
+        
+        current_package = {
+            "sym_key": base64.b64encode(encrypted_sym_key_for_recipient).decode('utf-8'),
+            "payload": base64.b64encode(encrypted_payload).decode('utf-8')
+        }
+
+        # --- Layer 2: For the relay node ---
+        log_event(f"Creating outer layer for relay '{relay_user}'.", level="CRYPTO")
         relay_payload = json.dumps({"destination_user": recipient_user, "payload": current_package}).encode('utf-8')
+        
         relay_pk = deserialize_public_key(self.online_users[relay_user]['public_key'])
         sym_key_for_relay = Fernet.generate_key()
+        log_event("Generated Fernet symmetric key for relay.", level="CRYPTO")
         encrypted_relay_payload = Fernet(sym_key_for_relay).encrypt(relay_payload)
-        outer_message = {"path": " -> ".join(path), "sym_key": base64.b64encode(relay_pk.encrypt(sym_key_for_relay, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))).decode('utf-8'), "payload": base64.b64encode(encrypted_relay_payload).decode('utf-8')}
+        log_event("Encrypted relay payload with symmetric key.", level="CRYPTO")
 
+        encrypted_sym_key_for_relay = relay_pk.encrypt(sym_key_for_relay, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
+        log_event("Encrypted symmetric key with relay's public key (RSA-OAEP).", level="CRYPTO")
+
+        outer_message = {
+            "path": " -> ".join(path),
+            "sym_key": base64.b64encode(encrypted_sym_key_for_relay).decode('utf-8'),
+            "payload": base64.b64encode(encrypted_relay_payload).decode('utf-8')
+        }
+        
+        log_event("Onion encryption complete. Sending message.", level="CRYPTO")
+        send_framed_message(sock, outer_message)
+        return True
+
+    def send_message(self, recipient_user, message_content, msg_type="text"):
+        if recipient_user not in self.online_users:
+            log_event(f"Send failed: User '{recipient_user}' is offline.", level="ERROR")
+            self.queue_ui_update("show_error", f"Cannot send message. User '{recipient_user}' is offline."); return
         try:
+            # The first hop is the relay node
+            first_hop_user = random.choice([u for u in self.online_users if u != recipient_user and u != self.username])
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect((self.online_users[relay_user]['ip'], self.online_users[relay_user]['port']))
-                s.sendall(json.dumps(outer_message).encode('utf-8'))
-            log_event(f"Message sent to first hop: {relay_user}")
+                log_event(f"Opening TCP connection to first hop '{first_hop_user}' to send a message.", level="NETWORK")
+                s.connect((self.online_users[first_hop_user]['ip'], self.online_users[first_hop_user]['port']))
+                self._send_onion_message(s, recipient_user, message_content, msg_type)
+            log_event(f"Message sent to first hop: {first_hop_user}", level="P2P")
+        except IndexError:
+             log_event("Cannot send message: Not enough users online for a relay.", level="ERROR")
+             self.queue_ui_update("show_error", "Cannot send message: At least 3 users must be online.")
         except Exception as e:
-            log_event(f"Error sending message to first hop {relay_user}: {e}")
-            self.gui_callback("show_error", f"Failed to send message: {e}")
+            log_event(f"Error sending single message: {e}", level="ERROR")
 
-    def start_file_send(self, recipient, filepath):
+    def start_file_send_chunked(self, recipient, filepath):
+        if recipient not in self.online_users:
+            log_event(f"File send failed: User '{recipient}' is offline.", level="ERROR")
+            self.queue_ui_update("show_error", f"Cannot send file. User '{recipient}' is offline."); return
         try:
             filesize = os.path.getsize(filepath)
             filename = os.path.basename(filepath)
+            chunk_count = math.ceil(filesize / FILE_CHUNK_SIZE)
+            transfer_id = f"{filename}_{time.time()}"
             
-            # 1. Create a temporary listening socket for the file transfer
-            file_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            file_socket.bind(('0.0.0.0', 0))
-            file_port = file_socket.getsockname()[1]
-            file_socket.listen(1)
+            log_event(f"Initiating file transfer of '{filename}' ({format_filesize(filesize)}) to '{recipient}'.", level="INFO")
+            
+            first_hop_user = random.choice([u for u in self.online_users if u != recipient and u != self.username])
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                log_event(f"Opening persistent TCP connection to relay '{first_hop_user}' for file transfer.", level="NETWORK")
+                s.connect((self.online_users[first_hop_user]['ip'], self.online_users[first_hop_user]['port']))
+                
+                # Send file start message
+                start_info = {"transfer_id": transfer_id, "filename": filename, "filesize": filesize, "chunk_count": chunk_count}
+                log_event(f"Sending 'file_start' message for transfer ID {transfer_id}.", level="P2P")
+                if not self._send_onion_message(s, recipient, start_info, "file_start"): return
+                self.queue_ui_update("file_transfer_update", ("start_send", recipient, start_info))
 
-            # 2. Send the file transfer request
-            file_info = json.dumps({"filename": filename, "filesize": filesize, "port": file_port})
-            self.send_message(recipient, file_info, "file_transfer_request")
-            
-            log_event(f"Waiting for {recipient} to connect for file transfer on port {file_port}...")
-            conn, addr = file_socket.accept()
-            log_event(f"{recipient} connected for file transfer.")
-            
-            self.gui_callback("transfer_started", (filename, filesize))
-            with open(filepath, "rb") as f:
-                bytes_sent = 0
-                while True:
-                    chunk = f.read(FILE_CHUNK_SIZE)
-                    if not chunk: break
-                    conn.sendall(chunk)
-                    bytes_sent += len(chunk)
-                    self.gui_callback("transfer_progress", (filename, bytes_sent))
-            
-            log_event(f"File '{filename}' sent successfully to {recipient}.")
-            self.gui_callback("transfer_finished", (filename, "Sent"))
+                # Send file chunks
+                with open(filepath, "rb") as f:
+                    for i in range(chunk_count):
+                        if not self.running: log_event("File transfer cancelled by user.", level="INFO"); return
+                        chunk_data = f.read(FILE_CHUNK_SIZE)
+                        chunk_info = {"transfer_id": transfer_id, "chunk_index": i, "data": base64.b64encode(chunk_data).decode('utf-8')}
+                        if (i == 0 or (i+1) % 10 == 0 or i+1 == chunk_count): # Log first, last, and every 10th chunk
+                            log_event(f"Sending chunk {i+1}/{chunk_count} for transfer ID {transfer_id}.", level="P2P")
+                        if not self._send_onion_message(s, recipient, chunk_info, "file_chunk"): return
+                        self.queue_ui_update("file_transfer_update", ("progress", recipient, {"transfer_id": transfer_id, "chunk_index": i}))
+
+                # Send file end message
+                end_info = {"transfer_id": transfer_id, "filename": filename}
+                log_event(f"Sending 'file_end' message for transfer ID {transfer_id}.", level="P2P")
+                self._send_onion_message(s, recipient, end_info, "file_end")
+                log_event(f"Finished sending all file data to relay '{first_hop_user}'.", level="INFO")
+        except IndexError:
+             log_event("Cannot send file: Not enough users online for a relay.", level="ERROR")
+             self.queue_ui_update("show_error", "Cannot send file: At least 3 users must be online.")
         except Exception as e:
-            log_event(f"Error sending file: {e}")
-            self.gui_callback("transfer_finished", (filename, f"Failed: {e}"))
-        finally:
-            if 'file_socket' in locals(): file_socket.close()
+            log_event(f"Error sending file: {e}", level="ERROR")
 
-    def start_file_receive(self, sender, file_info, save_path):
-        try:
-            filename = file_info['filename']
-            filesize = file_info['filesize']
-            
-            target_ip = self.online_users[sender]['ip']
-            target_port = file_info['port']
+    def handle_file_start(self, sender, content):
+        log_event(f"Received 'file_start' from '{sender}' for file '{content['filename']}'.", level="P2P")
+        self.queue_ui_update("incoming_file", (sender, content))
 
-            conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            conn.connect((target_ip, target_port))
-            
-            log_event(f"Connected to {sender} to receive file '{filename}'.")
-            self.gui_callback("transfer_started", (filename, filesize))
-            with open(save_path, "wb") as f:
-                bytes_received = 0
-                while bytes_received < filesize:
-                    chunk = conn.recv(FILE_CHUNK_SIZE)
-                    if not chunk: break
-                    f.write(chunk)
-                    bytes_received += len(chunk)
-                    self.gui_callback("transfer_progress", (filename, bytes_received))
-            
-            log_event(f"File '{filename}' received successfully.")
-            self.gui_callback("transfer_finished", (filename, "Received"))
-        except Exception as e:
-            log_event(f"Error receiving file: {e}")
-            self.gui_callback("transfer_finished", (filename, f"Failed: {e}"))
-        finally:
-            if 'conn' in locals(): conn.close()
+    def handle_file_chunk(self, sender, content):
+        transfer_id = content['transfer_id']
+        if transfer_id in self.incoming_files:
+            transfer_info = self.incoming_files[transfer_id]
+            chunk_data = base64.b64decode(content['data'])
+            transfer_info['file'].write(chunk_data)
+            transfer_info['received_chunks'] += 1
+            idx = content['chunk_index']
+            total = transfer_info['total_chunks']
+            if (idx == 0 or (idx+1) % 10 == 0 or idx+1 == total):
+                 log_event(f"Received and wrote chunk {idx+1}/{total} for file '{transfer_info['path']}'.", level="P2P")
+            self.queue_ui_update("file_transfer_update", ("progress", sender, {"transfer_id": transfer_id, "chunk_index": idx}))
+
+    def handle_file_end(self, sender, content):
+        transfer_id = content['transfer_id']
+        if transfer_id in self.incoming_files:
+            log_event(f"Received 'file_end' from '{sender}' for file '{content['filename']}'.", level="P2P")
+            self.incoming_files[transfer_id]['file'].close()
+            log_event(f"File '{self.incoming_files[transfer_id]['path']}' has been completely received and saved.", level="INFO")
+            self.queue_ui_update("file_transfer_update", ("finish_recv", sender, content))
+            del self.incoming_files[transfer_id]
 
     def initiate_voice_call(self, target_user):
         if not VOICE_CALL_ENABLED or self.voice_call_instance: return
         if target_user not in self.online_users:
-            self.gui_callback("show_error", f"Cannot call. User '{target_user}' is offline."); return
-        log_event(f"Requesting voice call with {target_user}")
+            self.queue_ui_update("show_error", f"Cannot call. User '{target_user}' is offline."); return
+        log_event(f"Initiating voice call with '{target_user}'. Sending 'call_request' via Onion/TCP.", level="INFO")
         self.call_partner = target_user
+        # The call request is sent as a standard onion message
         self.send_message(target_user, str(self.p2p_port + 1), msg_type="call_request")
 
     def accept_voice_call(self, target_user, target_udp_port):
         if not VOICE_CALL_ENABLED or self.voice_call_instance: return
-        log_event(f"Accepting voice call from {target_user}")
+        log_event(f"Accepting voice call from '{target_user}'. Sending 'call_accepted' via Onion/TCP.", level="INFO")
         self.call_partner = target_user
         self.send_message(target_user, str(self.p2p_port + 1), msg_type="call_accepted")
         self.start_voice_call_session(target_user, target_udp_port, is_initiator=False)
@@ -292,11 +414,15 @@ class SecuriChatClient:
     def start_voice_call_session(self, target_user, target_udp_port, is_initiator):
         if not VOICE_CALL_ENABLED or self.voice_call_instance: return
         target_ip = self.online_users[target_user]['ip']
-        log_event(f"Starting voice call session with {target_user} ({target_ip}:{target_udp_port})")
-        self.voice_call_instance = VoiceCall(target_ip, target_udp_port, self.p2p_port + 1)
+        my_udp_port = self.p2p_port + 1
+        log_event(f"Starting voice call session with {target_user} ({target_ip}:{target_udp_port}).", level="INFO")
+        log_event(f"Protocol: UDP. My listening port: {my_udp_port}. Target port: {target_udp_port}.", level="NETWORK")
+        self.voice_call_instance = VoiceCall(target_ip, target_udp_port, my_udp_port)
         if self.voice_call_instance.start():
-            self.gui_callback("call_started", target_user)
+            log_event("Voice call streams (PyAudio) and UDP socket started successfully.", level="INFO")
+            self.queue_ui_update("call_started", target_user)
         else:
+            log_event("Failed to start voice call session.", level="ERROR")
             self.voice_call_instance = None
 
     def end_voice_call_session(self, target_user, initiated_by_other=False):
@@ -310,15 +436,18 @@ class SecuriChatClient:
         self.call_partner = None
         
         if not initiated_by_other:
+            log_event(f"Ending voice call with '{user_in_call}'. Sending 'call_ended' message via Onion/TCP.", level="INFO")
             self.send_message(user_in_call, "ended", msg_type="call_ended")
+        else:
+            log_event(f"Received 'call_ended' message from '{user_in_call}'.", level="INFO")
         
         call_instance_to_end.stop()
         duration = call_instance_to_end.get_duration()
         
-        log_event(f"Voice call with {user_in_call} ended. Duration: {duration:.2f}s")
-        self.gui_callback("call_ended", (user_in_call, duration))
+        log_event(f"Voice call with {user_in_call} ended. UDP socket and streams closed. Duration: {duration:.2f}s", level="INFO")
+        self.queue_ui_update("call_ended", (user_in_call, duration))
 
-# --- GUI Application Class ---
+# --- GUI Application Class (No changes needed below this line) ---
 class SecuriChatGUI(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -329,25 +458,40 @@ class SecuriChatGUI(ctk.CTk):
         self.current_chat_user = None
         self.history_file = ""
         self.unread_notifications = set()
-        self.transfer_progress_bars = {}
+        self.transfer_widgets = {}
+        self.ui_queue = queue.Queue()
         self.create_login_widgets()
+        self.after(100, self.process_ui_queue)
+
+    def process_ui_queue(self):
+        try:
+            while True:
+                command, data = self.ui_queue.get_nowait()
+                self.handle_backend_callback(command, data)
+        except queue.Empty:
+            pass
+        self.after(100, self.process_ui_queue)
 
     def load_history(self):
         self.history_file = f"history_{self.client_backend.username}.json"
         try:
             if os.path.exists(self.history_file):
                 with open(self.history_file, 'r') as f:
-                    self.chat_sessions = json.load(f)
-                log_event("Chat history loaded.")
+                    loaded_sessions = json.load(f)
+                    for user, messages in loaded_sessions.items():
+                        self.chat_sessions[user] = [
+                            (msg[0], msg[1], msg[2] if len(msg) == 3 else None) for msg in messages
+                        ]
+                log_event("Chat history loaded from file.", level="INFO")
         except (json.JSONDecodeError, FileNotFoundError) as e:
-            log_event(f"Could not load chat history: {e}")
+            log_event(f"Could not load chat history: {e}", level="ERROR")
             self.chat_sessions = {}
 
     def save_history(self):
         if self.history_file:
             with open(self.history_file, 'w') as f:
                 json.dump(self.chat_sessions, f, indent=4)
-            log_event("Chat history saved.")
+            log_event("Chat history saved to file.", level="INFO")
 
     def create_login_widgets(self):
         self.login_frame = ctk.CTkFrame(self)
@@ -373,7 +517,7 @@ class SecuriChatGUI(ctk.CTk):
         except ValueError:
             messagebox.showerror("Error", "Invalid Tracker address format. Use IP:Port."); return
 
-        self.client_backend = SecuriChatClient(username, tracker_addr, self.handle_backend_callback)
+        self.client_backend = SecuriChatClient(username, tracker_addr, self.ui_queue)
         self.load_history()
         if self.client_backend.start():
             self.login_frame.destroy()
@@ -400,9 +544,6 @@ class SecuriChatGUI(ctk.CTk):
         self.online_listbox = ctk.CTkScrollableFrame(self.user_frame, label_text="")
         self.online_listbox.pack(fill="both", expand=True, padx=5, pady=5)
 
-        self.progress_frame = ctk.CTkFrame(self.main_chat_frame, fg_color="transparent")
-        self.progress_frame.pack(side="bottom", fill="x", pady=5)
-
         self.welcome_label = ctk.CTkLabel(self.main_chat_frame, text="Select a user to start chatting.", font=ctk.CTkFont(size=20))
         self.welcome_label.pack(pady=100, padx=20)
 
@@ -423,16 +564,19 @@ class SecuriChatGUI(ctk.CTk):
             self.log_call_in_chat(user, duration)
         elif command == "incoming_file":
             sender, file_info = data
-            if messagebox.askyesno("File Transfer", f"Accept file '{file_info['filename']}' ({file_info['filesize']:,} bytes) from {sender}?"):
+            if messagebox.askyesno("File Transfer", f"Accept file '{file_info['filename']}' ({format_filesize(file_info['filesize'])}) from {sender}?"):
                 save_path = filedialog.asksaveasfilename(initialfile=file_info['filename'])
                 if save_path:
-                    threading.Thread(target=self.client_backend.start_file_receive, args=(sender, file_info, save_path), daemon=True).start()
-        elif command == "transfer_started": self.create_progress_bar(*data)
-        elif command == "transfer_progress": self.update_progress_bar(*data)
-        elif command == "transfer_finished": self.remove_progress_bar(*data)
+                    self.client_backend.incoming_files[file_info['transfer_id']] = {"path": save_path, "received_chunks": 0, "total_chunks": file_info['chunk_count'], "file": open(save_path, "wb")}
+                    self.handle_file_ui_update("start_recv", sender, file_info)
+        elif command == "file_transfer_update":
+            event_type, peer, info = data
+            self.handle_file_ui_update(event_type, peer, info)
 
     def update_history_list_display(self):
-        for widget in self.history_listbox.winfo_children(): widget.destroy()
+        for widget in self.history_listbox.winfo_children():
+            try: widget.destroy()
+            except ctk.TclError: pass
         for username in sorted(self.chat_sessions.keys()):
             btn = ctk.CTkButton(self.history_listbox, text=username, command=lambda u=username: self.switch_chat_view(u))
             btn.pack(fill="x", pady=2, padx=2)
@@ -444,24 +588,30 @@ class SecuriChatGUI(ctk.CTk):
             current_buttons = {child.cget("text"): child for child in self.online_listbox.winfo_children()}
             online_users = set(user_dict.keys())
             
-            for user, button in current_buttons.items():
-                if user not in online_users: button.destroy()
+            for user, button in list(current_buttons.items()):
+                if user not in online_users:
+                    try: button.destroy()
+                    except (ctk.TclError, RuntimeError): pass
             for user in online_users:
                 if user not in current_buttons:
                     btn = ctk.CTkButton(self.online_listbox, text=user, command=lambda u=user: self.switch_chat_view(u))
                     btn.pack(fill="x", pady=2, padx=2)
-                    if user in self.unread_notifications:
-                        btn.configure(fg_color="green")
+                else:
+                    btn = current_buttons[user]
+                
+                if user in self.unread_notifications:
+                    btn.configure(fg_color="green")
+                else:
+                    btn.configure(fg_color=("#3a7ebf", "#1f538d"))
         except Exception as e:
-            log_event(f"GUI Error in update_online_list_display: {e}")
+            log_event(f"GUI Error in update_online_list_display: {e}", level="ERROR")
 
     def switch_chat_view(self, username):
         self.current_chat_user = username
-        self.unread_notifications.discard(username) # Mark as read
-        self.update_online_list_display(self.client_backend.online_users) # Redraw to remove notification color
+        self.unread_notifications.discard(username)
+        self.update_online_list_display(self.client_backend.online_users)
         
-        for widget in self.main_chat_frame.winfo_children():
-            if widget != self.progress_frame: widget.destroy()
+        for widget in self.main_chat_frame.winfo_children(): widget.destroy()
 
         self.chat_text_area = ctk.CTkTextbox(self.main_chat_frame, state="disabled", wrap="word")
         self.chat_text_area.pack(side="top", fill="both", expand=True, padx=10, pady=(10, 5))
@@ -470,6 +620,10 @@ class SecuriChatGUI(ctk.CTk):
         self.chat_text_area.tag_config("sent", foreground="#C39BD3")
         self.chat_text_area.tag_config("received", foreground=received_text_color)
         self.chat_text_area.tag_config("system", foreground="gray", justify="center")
+        self.chat_text_area.tag_config("file", foreground="#3498DB")
+
+        self.progress_frame = ctk.CTkFrame(self.main_chat_frame, fg_color="transparent")
+        self.progress_frame.pack(side="bottom", fill="x", padx=10)
 
         input_frame = ctk.CTkFrame(self.main_chat_frame, fg_color="transparent")
         input_frame.pack(side="bottom", fill="x", expand=False, padx=10, pady=(5, 10))
@@ -493,8 +647,12 @@ class SecuriChatGUI(ctk.CTk):
     def load_chat_history(self, username):
         self.chat_text_area.configure(state="normal")
         self.chat_text_area.delete("1.0", "end")
-        for message_type, text in self.chat_sessions.get(username, []):
-            self.add_message_to_box(text, message_type)
+        for item in self.chat_sessions.get(username, []):
+            if len(item) == 3:
+                msg_type, text, data = item
+            else:
+                msg_type, text = item; data = None
+            self.add_message_to_box(text, msg_type, data)
         self.chat_text_area.configure(state="disabled")
 
     def send_chat_message(self):
@@ -511,17 +669,17 @@ class SecuriChatGUI(ctk.CTk):
         self.add_message_to_session(sender, "received", f"{sender}: {message}")
         if sender != self.current_chat_user:
             self.unread_notifications.add(sender)
-            self.update_online_list_display(self.client_backend.online_users) # Redraw to show notification
+            self.update_online_list_display(self.client_backend.online_users)
             messagebox.showinfo("New Message", f"You have a new message from {sender}.")
 
-    def add_message_to_session(self, username, msg_type, text):
+    def add_message_to_session(self, username, msg_type, text, data=None):
         if username not in self.chat_sessions: self.chat_sessions[username] = []
-        self.chat_sessions[username].append((msg_type, text))
+        self.chat_sessions[username].append((msg_type, text, data))
         if self.current_chat_user == username:
-            self.add_message_to_box(text, msg_type)
+            self.add_message_to_box(text, msg_type, data)
         self.update_history_list_display()
 
-    def add_message_to_box(self, text, tag):
+    def add_message_to_box(self, text, tag, data=None):
         if not hasattr(self, 'chat_text_area') or not self.chat_text_area.winfo_exists(): return
         self.chat_text_area.configure(state="normal")
         self.chat_text_area.insert("end", text + "\n", tag)
@@ -531,11 +689,10 @@ class SecuriChatGUI(ctk.CTk):
     def on_send_file_click(self):
         if self.current_chat_user:
             if self.current_chat_user not in self.client_backend.online_users:
-                messagebox.showerror("Offline", f"User '{self.current_chat_user}' is offline. Cannot send file.")
-                return
+                messagebox.showerror("Offline", f"User '{self.current_chat_user}' is offline. Cannot send file."); return
             filepath = filedialog.askopenfilename()
             if filepath:
-                threading.Thread(target=self.client_backend.start_file_send, args=(self.current_chat_user, filepath), daemon=True).start()
+                threading.Thread(target=self.client_backend.start_file_send_chunked, args=(self.current_chat_user, filepath), daemon=True).start()
 
     def toggle_call(self):
         if self.current_chat_user:
@@ -552,30 +709,45 @@ class SecuriChatGUI(ctk.CTk):
         log_text = f"--- Voice call ended at {datetime.now().strftime('%H:%M:%S')}. Duration: {duration:.2f} seconds. ---"
         self.add_message_to_session(username, "system", log_text)
 
-    def create_progress_bar(self, filename, filesize):
-        bar_frame = ctk.CTkFrame(self.progress_frame)
-        bar_frame.pack(fill="x", expand=True, pady=2, padx=2)
-        label = ctk.CTkLabel(bar_frame, text=f"{filename} (0%)")
+    def handle_file_ui_update(self, event_type, peer, info):
+        transfer_id = info['transfer_id']
+        if event_type == "start_send":
+            text = f"📎 You are sending {info['filename']} ({format_filesize(info['filesize'])})"
+            self.add_message_to_session(peer, "file", text, info)
+            self.create_progress_bar(transfer_id, info)
+        elif event_type == "start_recv":
+            text = f"📎 {peer} is sending {info['filename']} ({format_filesize(info['filesize'])})"
+            self.add_message_to_session(peer, "file", text, info)
+            self.create_progress_bar(transfer_id, info)
+        elif event_type == "progress":
+            if transfer_id in self.transfer_widgets:
+                progress = (info['chunk_index'] + 1) / self.transfer_widgets[transfer_id]['total_chunks']
+                self.transfer_widgets[transfer_id]['bar'].set(progress)
+        elif event_type == "finish_send":
+            self.add_message_to_session(peer, "system", f"✅ Sent {info['filename']} successfully.")
+            if transfer_id in self.transfer_widgets:
+                self.transfer_widgets[transfer_id]['frame'].destroy()
+                del self.transfer_widgets[transfer_id]
+        elif event_type == "finish_recv":
+            self.add_message_to_session(peer, "system", f"✅ Received {info['filename']} successfully.")
+            if transfer_id in self.transfer_widgets:
+                self.transfer_widgets[transfer_id]['frame'].destroy()
+                del self.transfer_widgets[transfer_id]
+
+    def create_progress_bar(self, transfer_id, file_info):
+        if not hasattr(self, 'progress_frame') or not self.progress_frame.winfo_exists(): return
+        
+        frame = ctk.CTkFrame(self.progress_frame)
+        frame.pack(fill="x", expand=True, pady=2, padx=2)
+        
+        label = ctk.CTkLabel(frame, text=f"{file_info['filename']}")
         label.pack(side="left", padx=5)
-        bar = ctk.CTkProgressBar(bar_frame)
-        bar.pack(side="left", fill="x", expand=True, padx=5)
+        
+        bar = ctk.CTkProgressBar(frame)
         bar.set(0)
-        self.transfer_progress_bars[filename] = {"bar": bar, "label": label, "frame": bar_frame, "filesize": filesize}
-
-    def update_progress_bar(self, filename, bytes_transferred):
-        if filename in self.transfer_progress_bars:
-            info = self.transfer_progress_bars[filename]
-            progress = bytes_transferred / info['filesize']
-            info['bar'].set(progress)
-            info['label'].configure(text=f"{filename} ({progress:.0%})")
-
-    def remove_progress_bar(self, filename, status):
-        if filename in self.transfer_progress_bars:
-            info = self.transfer_progress_bars[filename]
-            info['label'].configure(text=f"{filename} - {status}")
-            info['bar'].destroy()
-            self.after(5000, info['frame'].destroy) # Remove after 5 seconds
-            del self.transfer_progress_bars[filename]
+        bar.pack(side="left", fill="x", expand=True, padx=5)
+        
+        self.transfer_widgets[transfer_id] = {"frame": frame, "bar": bar, "total_chunks": file_info['chunk_count']}
 
     def on_closing(self):
         self.save_history()
@@ -583,6 +755,9 @@ class SecuriChatGUI(ctk.CTk):
         self.destroy()
 
 if __name__ == "__main__":
+    # Clear the log file on startup for a clean run
+    if os.path.exists(LOG_FILE):
+        os.remove(LOG_FILE)
     ctk.set_appearance_mode("System")
     ctk.set_default_color_theme("blue")
     app = SecuriChatGUI()

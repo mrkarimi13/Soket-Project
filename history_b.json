@@ -2,15 +2,132 @@
     "a": [
         [
             "received",
-            "a: hi"
+            "a: hi",
+            null
         ],
         [
             "sent",
-            "You: hi"
+            "You: hi",
+            null
         ],
         [
             "system",
-            "--- Voice call ended at 17:56:05. Duration: 5.22 seconds. ---"
+            "--- Voice call ended at 17:56:05. Duration: 5.22 seconds. ---",
+            null
+        ],
+        [
+            "received",
+            "a: hi",
+            null
+        ],
+        [
+            "file",
+            "\ud83d\udcce a is sending \u062a\u0645\u0631\u06cc\u0646 \u0633\u0648\u0645.pdf (0B)",
+            {
+                "transfer_id": "\u062a\u0645\u0631\u06cc\u0646 \u0633\u0648\u0645.pdf_1749235796.8638601",
+                "filename": "\u062a\u0645\u0631\u06cc\u0646 \u0633\u0648\u0645.pdf",
+                "filesize": 0,
+                "chunk_count": 0
+            }
+        ],
+        [
+            "sent",
+            "You: hi",
+            null
+        ],
+        [
+            "sent",
+            "You: hi",
+            null
+        ],
+        [
+            "file",
+            "\ud83d\udcce You are sending \u062a\u0645\u0631\u06cc\u0646 \u0633\u0648\u0645.pdf (0B)",
+            {
+                "transfer_id": "\u062a\u0645\u0631\u06cc\u0646 \u0633\u0648\u0645.pdf_1749236059.7904973",
+                "filename": "\u062a\u0645\u0631\u06cc\u0646 \u0633\u0648\u0645.pdf",
+                "filesize": 0,
+                "chunk_count": 0
+            }
+        ],
+        [
+            "sent",
+            "You: hi",
+            null
+        ],
+        [
+            "sent",
+            "You: hi",
+            null
+        ],
+        [
+            "received",
+            "a: hi",
+            null
+        ],
+        [
+            "file",
+            "\ud83d\udcce a is sending 1.pdf (1.32 MB)",
+            {
+                "transfer_id": "1.pdf_1749239349.0957994",
+                "filename": "1.pdf",
+                "filesize": 1386499,
+                "chunk_count": 339
+            }
+        ],
+        [
+            "system",
+            "\u2705 Received 1.pdf successfully.",
+            null
+        ],
+        [
+            "received",
+            "a: hi",
+            null
+        ]
+    ],
+    "c": [
+        [
+            "received",
+            "c: hi",
+            null
+        ],
+        [
+            "received",
+            "c: hi",
+            null
+        ],
+        [
+            "sent",
+            "You: hi",
+            null
+        ],
+        [
+            "file",
+            "\ud83d\udcce You are sending 1.pdf (1.32 MB)",
+            {
+                "transfer_id": "1.pdf_1749250868.9610336",
+                "filename": "1.pdf",
+                "filesize": 1386499,
+                "chunk_count": 170
+            }
+        ],
+        [
+            "system",
+            "--- Voice call ended at 21:30:36. Duration: 7.97 seconds. ---",
+            null
+        ],
+        [
+            "system",
+            "--- Voice call ended at 21:30:59. Duration: 4.00 seconds. ---",
+            null
+        ]
+    ],
+    "d": [
+        [
+            "received",
+            "d: hi",
+            null
         ]
     ]
 }

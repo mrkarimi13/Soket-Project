@@ -1,4 +1,3 @@
-# voice_call.py (Robust version)
 import pyaudio
 import socket
 import threading

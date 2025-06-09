@@ -1,116 +1,140 @@
-# tracker.py
+
 import socket
 import threading
 import json
 import time
+import struct
 from datetime import datetime
 
-HOST = '0.0.0.0'  # Listen on all available network interfaces
+HOST = '0.0.0.0'
 PORT = 8000
-BUFFER_SIZE = 4096
 
-# A thread-safe dictionary to store user information
-# Format: { "username": {"ip": str, "port": int, "public_key": str, "last_seen": float} }
 online_users = {}
 users_lock = threading.Lock()
 
 def log(message):
-    """Prints a log message with a timestamp."""
+    """Logs a message to the console with a timestamp."""
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(f"[{timestamp}] {message}")
+    print(f"[{timestamp}] [Tracker] {message}")
+
+def send_framed_message(sock, message_dict):
+    """Sends a JSON message prefixed with its length."""
+    try:
+        message_json = json.dumps(message_dict).encode('utf-8')
+        header = struct.pack('!I', len(message_json))
+        sock.sendall(header + message_json)
+    except Exception as e:
+        log(f"Error sending framed message: {e}")
+
+def receive_framed_message(sock):
+    """Receives a JSON message prefixed with its length."""
+    try:
+        header_data = sock.recv(4)
+        if not header_data: return None
+        message_length = struct.unpack('!I', header_data)[0]
+        
+        full_message_data = b''
+        while len(full_message_data) < message_length:
+            chunk = sock.recv(message_length - len(full_message_data))
+            if not chunk: return None
+            full_message_data += chunk
+            
+        return json.loads(full_message_data.decode('utf-8'))
+    except (struct.error, json.JSONDecodeError, ConnectionResetError) as e:
+        log(f"Error receiving framed message: {e}")
+        return None
 
 def cleanup_inactive_users():
-    """Periodically checks for and removes inactive users."""
+    """Periodically removes users who haven't polled in a while."""
     while True:
-        time.sleep(60)  # Check every 60 seconds
+        time.sleep(60)
         with users_lock:
             current_time = time.time()
+            # Users are considered inactive after 120 seconds
             inactive_users = [
                 user for user, data in online_users.items()
-                if current_time - data.get('last_seen', 0) > 120  # 2-minute timeout
+                if current_time - data.get('last_seen', 0) > 120
             ]
             for user in inactive_users:
                 del online_users[user]
-                log(f"Removed inactive user: {user}")
+                log(f"Removed inactive user due to timeout: {user}")
 
 def handle_client(conn, addr):
-    """Handles a single client connection."""
-    log(f"New connection from {addr}")
+    """Handles a single client request."""
+    log(f"Accepted new TCP connection from {addr}")
     try:
-        while True:
-            data = conn.recv(BUFFER_SIZE)
-            if not data:
-                break
-            
-            request = json.loads(data.decode('utf-8'))
-            command = request.get("command")
-            
-            with users_lock:
-                if command == "REGISTER":
-                    username = request.get("username")
-                    port = request.get("port")
-                    public_key = request.get("public_key")
-                    if username and port and public_key:
-                        online_users[username] = {
-                            "ip": addr[0],
-                            "port": port,
-                            "public_key": public_key,
-                            "last_seen": time.time()
-                        }
-                        log(f"Registered user '{username}' from {addr[0]}:{port}")
-                        conn.sendall(json.dumps({"status": "OK", "message": "Registered successfully"}).encode('utf-8'))
-                    else:
-                        conn.sendall(json.dumps({"status": "ERROR", "message": "Missing registration info"}).encode('utf-8'))
+        request = receive_framed_message(conn)
+        if not request:
+            log(f"Connection from {addr} sent invalid or no data. Closing.")
+            return
 
-                elif command == "GET_USERS":
-                    username = request.get("username")
-                    if username in online_users:
-                        online_users[username]['last_seen'] = time.time() # Update timestamp
-                    
-                    # Return all users except the one asking
-                    users_to_send = {u: d for u, d in online_users.items() if u != username}
-                    conn.sendall(json.dumps(users_to_send).encode('utf-8'))
-
-                elif command == "DEREGISTER":
-                    username = request.get("username")
-                    if username in online_users:
-                        del online_users[username]
-                        log(f"Deregistered user: {username}")
-                        conn.sendall(json.dumps({"status": "OK", "message": "Deregistered"}).encode('utf-8'))
-                
-                else:
-                    conn.sendall(json.dumps({"status": "ERROR", "message": "Unknown command"}).encode('utf-8'))
-
-    except (ConnectionResetError, json.JSONDecodeError, BrokenPipeError) as e:
-        log(f"Connection error with {addr}: {e}")
-    finally:
-        # On disconnect, find and remove the user associated with this connection
+        command = request.get("command")
+        log(f"Received command '{command}' from {addr}")
+        
         with users_lock:
-            user_to_remove = None
-            for username, data in online_users.items():
-                if data['ip'] == addr[0]: # This is a simplification; multiple users could be behind one IP
-                    # A more robust system would use a session ID
-                    pass
-            # For now, we rely on DEREGISTER and the inactivity cleanup
-        conn.close()
-        log(f"Connection closed with {addr}")
+            if command == "REGISTER":
+                username = request.get("username")
+                if username in online_users:
+                    log(f"Registration failed for '{username}': username already taken.")
+                    send_framed_message(conn, {"status": "ERROR", "message": "Username already taken."})
+                    return
+                port = request.get("port")
+                public_key = request.get("public_key")
+                if username and port and public_key:
+                    online_users[username] = {
+                        "ip": addr[0], "port": port,
+                        "public_key": public_key, "last_seen": time.time()
+                    }
+                    log(f"Registered user '{username}' at {addr[0]}:{port}")
+                    send_framed_message(conn, {"status": "OK", "message": "Registered successfully"})
+                else:
+                    log(f"Registration failed for '{username}': missing information.")
+                    send_framed_message(conn, {"status": "ERROR", "message": "Missing registration info"})
 
+            elif command == "GET_USERS":
+                username = request.get("username")
+                # Update the user's last_seen timestamp to keep them "alive"
+                if username in online_users:
+                    online_users[username]['last_seen'] = time.time()
+                
+                # Return all other users
+                users_to_send = {u: d for u, d in online_users.items() if u != username}
+                log(f"Sent user list to '{username}'. Found {len(users_to_send)} other users.")
+                send_framed_message(conn, users_to_send)
+
+            elif command == "DEREGISTER":
+                username = request.get("username")
+                if username in online_users:
+                    del online_users[username]
+                    log(f"Deregistered user: {username}")
+                    send_framed_message(conn, {"status": "OK", "message": "Deregistered"})
+                else:
+                    log(f"Deregister command for non-existent user: {username}")
+            
+            else:
+                log(f"Received unknown command '{command}' from {addr}")
+                send_framed_message(conn, {"status": "ERROR", "message": "Unknown command"})
+
+    except Exception as e:
+        log(f"An unexpected error occurred with {addr}: {e}")
+    finally:
+        conn.close()
+        log(f"TCP connection closed with {addr}")
 
 def main():
-    """Main function to start the tracker server."""
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind((HOST, PORT))
     server_socket.listen(10)
-    log(f"Tracker server listening on {HOST}:{PORT}")
+    log(f"Tracker server listening on {HOST}:{PORT} using TCP")
 
-    # Start the cleanup thread
     cleanup_thread = threading.Thread(target=cleanup_inactive_users, daemon=True)
     cleanup_thread.start()
+    log("Started inactive user cleanup thread.")
 
     while True:
         conn, addr = server_socket.accept()
-        client_thread = threading.Thread(target=handle_client, args=(conn, addr))
+        client_thread = threading.Thread(target=handle_client, args=(conn, addr), daemon=True)
         client_thread.start()
 
 if __name__ == "__main__":
